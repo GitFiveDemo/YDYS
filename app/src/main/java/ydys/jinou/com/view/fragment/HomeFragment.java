@@ -6,9 +6,9 @@ import android.content.Intent;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
-import android.view.MotionEvent;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.google.gson.Gson;
 import com.scwang.smartrefresh.layout.SmartRefreshLayout;
@@ -16,6 +16,10 @@ import com.scwang.smartrefresh.layout.api.RefreshLayout;
 import com.scwang.smartrefresh.layout.listener.OnRefreshListener;
 import com.youth.banner.Banner;
 import com.youth.banner.BannerConfig;
+
+import org.greenrobot.eventbus.EventBus;
+import org.greenrobot.eventbus.Subscribe;
+import org.greenrobot.eventbus.ThreadMode;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -46,16 +50,15 @@ public class HomeFragment extends BaseFragment<HomePresenter> {
     Banner banner;
     @BindView(R.id.serch_movie)
     EditText serchMovie;
-    Unbinder unbinder;
     @BindView(R.id.recyclerview)
     RecyclerView recyclerview;
     @BindView(R.id.duanzi_smart)
     SmartRefreshLayout duanziSmart;
-    Unbinder unbinder1;
     private String TAG = "HomeFragment";
     private HomePresenter homePresenter;
     private MyAdapter myAdapter;
     private ProgressDialog progressDialog;
+
     @Override
     protected HomePresenter getPresenter() {
         homePresenter = new HomePresenter();
@@ -64,13 +67,22 @@ public class HomeFragment extends BaseFragment<HomePresenter> {
 
     @Override
     protected void initData() {
+        //注册
+        EventBus.getDefault().register(this);
+
         inbanner();
+        //禁用滑动事件
+        recyclerview.setNestedScrollingEnabled(false);
+        recyclerview.setLayoutManager(new LinearLayoutManager(getActivity()));
+
         initRefresh();
+
         //显示加载框
         showProgressDialog("提示", "正在加载......");
         Map<String, String> map = new HashMap<>();
         homePresenter.getData(ServiceUrl.homeUrl, map);
     }
+
     //判断加载是否完成
     public void showProgressDialog(String title, String message) {
         if (progressDialog == null) {
@@ -106,12 +118,11 @@ public class HomeFragment extends BaseFragment<HomePresenter> {
                     public void run() {
                         duanziSmart.finishRefresh();
                     }
-                },2000);
+                }, 2000);
 
             }
         });
     }
-
 
 
     @Override
@@ -131,9 +142,6 @@ public class HomeFragment extends BaseFragment<HomePresenter> {
 
         recyclerview.setAdapter(myAdapter);
 
-        //禁用滑动事件
-        recyclerview.setNestedScrollingEnabled(false);
-        recyclerview.setLayoutManager(new LinearLayoutManager(getActivity()));
 
         //获取图片
         for (int i = 0; i < list.size(); i++) {
@@ -154,8 +162,7 @@ public class HomeFragment extends BaseFragment<HomePresenter> {
         //设置自动轮播，默认为true
         banner.isAutoPlay(true);
         //设置轮播时间
-        banner.setDelayTime(1500);
-
+        banner.setDelayTime(2000);
         //设置指示器位置（当banner模式中有指示器时）
         banner.setIndicatorGravity(BannerConfig.CENTER);
 
@@ -166,12 +173,9 @@ public class HomeFragment extends BaseFragment<HomePresenter> {
         Log.e(TAG, "error: " + error);
     }
 
-    @OnClick({R.id.banner, R.id.serch_movie})
+    @OnClick({R.id.serch_movie})
     public void onViewClicked(View view) {
         switch (view.getId()) {
-            case R.id.banner:
-
-                break;
             case R.id.serch_movie:
                 Intent intent = new Intent(getActivity(), SerchMovieActivity.class);
                 startActivity(intent);
@@ -179,9 +183,20 @@ public class HomeFragment extends BaseFragment<HomePresenter> {
         }
     }
 
+
+
+    @Subscribe(threadMode = ThreadMode.MAIN, priority = 1000)
+    public void onToastEvent(Integer msg) {//参数就是订阅的事件(其实就是传递数据的类)
+        if (msg == -1){
+            banner.start();
+        }else{
+            banner.stopAutoPlay();
+        }
+    }
+
     @Override
-    public void onDestroyView() {
-        super.onDestroyView();
-        unbinder1.unbind();
+    public void onDestroy() {
+        super.onDestroy();
+        EventBus.getDefault().unregister(this);
     }
 }
