@@ -30,7 +30,7 @@ public class MineFragment extends BaseFragment<HomePresenter> {
 
     @Override
     protected int setBaseView() {
-        return R.layout.main_fragment_layout;
+        return R.layout.mine_fragment_layout;
     }
 
     @Override
