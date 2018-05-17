@@ -3,11 +3,12 @@ package ydys.jinou.com.view.activity;
 
 import android.graphics.Color;
 import android.os.Bundle;
-import android.support.annotation.ColorInt;
 import android.support.annotation.Nullable;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
+import android.widget.FrameLayout;
 import android.widget.TextView;
 
 import com.ashokvarma.bottomnavigation.BottomNavigationBar;
@@ -16,6 +17,7 @@ import com.ashokvarma.bottomnavigation.BottomNavigationItem;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import ydys.jinou.com.R;
+import ydys.jinou.com.view.custom.slide.SlideLayout;
 import ydys.jinou.com.view.fragment.FancyFragment;
 import ydys.jinou.com.view.fragment.HomeFragment;
 import ydys.jinou.com.view.fragment.MineFragment;
@@ -27,6 +29,10 @@ public class MainActivity extends AppCompatActivity {
     BottomNavigationBar mainBottomBar;
     @BindView(R.id.main_title)
     TextView mainTitle;
+    @BindView(R.id.sideLayout)
+    SlideLayout sideLayout;
+    @BindView(R.id.main_frame)
+    FrameLayout mainFrame;
     private FragmentManager supportFragmentManager;
     private HomeFragment homeFragment;
     private SpecialFragment specialFragment;
@@ -43,12 +49,15 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void init() {
+
         supportFragmentManager = getSupportFragmentManager();
         homeFragment = new HomeFragment();
         supportFragmentManager.beginTransaction().add(R.id.main_frame, homeFragment).commit();
     }
 
     private void initBottomMenu() {
+        mainBottomBar.setMode(BottomNavigationBar.MODE_FIXED);
+        mainBottomBar.setBackgroundResource(R.drawable.bottom_bg);
         mainBottomBar.addItem(new BottomNavigationItem(R.drawable.found, "精选"))
                 .addItem(new BottomNavigationItem(R.drawable.special, "专题"))
                 .addItem(new BottomNavigationItem(R.drawable.fancy, "发现"))
