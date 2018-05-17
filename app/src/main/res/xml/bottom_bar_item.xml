@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<tabs>
+    <tab
+        id="@+id/tab_found"
+        icon="@drawable/found"
+        title="精选" />
+    <tab
+        id="@+id/tab_special"
+        icon="@drawable/special"
+        title="专题" />
+
+    <tab
+        id="@+id/tab_fancy"
+        icon="@drawable/fancy"
+        title="发现" />
+
+    <tab
+        id="@+id/tab_my"
+        icon="@drawable/my"
+        title="我的" />
+</tabs>
