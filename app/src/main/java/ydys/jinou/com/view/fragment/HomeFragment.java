@@ -3,13 +3,11 @@ package ydys.jinou.com.view.fragment;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
-import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
-import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.EditText;
 
 import com.google.gson.Gson;
@@ -114,6 +112,8 @@ public class HomeFragment extends BaseFragment<HomePresenter> {
         });
     }
 
+
+
     @Override
     protected int setBaseView() {
         return R.layout.home_fragment_layout;
@@ -130,6 +130,9 @@ public class HomeFragment extends BaseFragment<HomePresenter> {
         myAdapter = new MyAdapter(getActivity(), list);
 
         recyclerview.setAdapter(myAdapter);
+
+        //禁用滑动事件
+        recyclerview.setNestedScrollingEnabled(false);
         recyclerview.setLayoutManager(new LinearLayoutManager(getActivity()));
 
         //获取图片
@@ -143,6 +146,7 @@ public class HomeFragment extends BaseFragment<HomePresenter> {
     }
 
     private void inbanner() {
+
         //设置banner样式...CIRCLE_INDICATOR_TITLE包含标题
         banner.setBannerStyle(BannerConfig.CIRCLE_INDICATOR);
         //设置图片加载器
@@ -151,6 +155,7 @@ public class HomeFragment extends BaseFragment<HomePresenter> {
         banner.isAutoPlay(true);
         //设置轮播时间
         banner.setDelayTime(1500);
+
         //设置指示器位置（当banner模式中有指示器时）
         banner.setIndicatorGravity(BannerConfig.CENTER);
 
