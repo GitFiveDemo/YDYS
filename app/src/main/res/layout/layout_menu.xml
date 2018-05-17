@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="32pt"
+        android:orientation="vertical">
+
+        <ydys.jinou.com.view.custom.CircleImageView
+            android:layout_width="140pt"
+            android:layout_height="140pt"
+            android:layout_marginTop="50pt"
+            android:scaleType="centerCrop"
+            android:src="@drawable/photo" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30pt"
+            android:text="哈喽,有道影视"
+            android:textColor="#FFFFFF"
+            android:textSize="18sp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="60pt"
+            android:layout_marginTop="110pt"
+            android:gravity="center_vertical">
+
+            <ImageView
+                android:layout_width="40pt"
+                android:layout_height="40pt"
+                android:src="@drawable/icon_alert" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30pt"
+                android:text="我的收藏"
+                android:textColor="#FFFFFF" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="60pt"
+            android:layout_marginTop="30pt"
+            android:gravity="center_vertical">
+
+            <ImageView
+                android:layout_width="40pt"
+                android:layout_height="40pt"
+                android:src="@drawable/icon_gift" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30pt"
+                android:text="我的下载"
+                android:textColor="#FFFFFF" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="60pt"
+            android:layout_marginTop="30pt"
+            android:gravity="center_vertical">
+
+            <ImageView
+                android:layout_width="40pt"
+                android:layout_height="40pt"
+                android:src="@drawable/icon_jewel" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30pt"
+                android:text="福利"
+                android:textColor="#FFFFFF" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="60pt"
+            android:layout_marginTop="30pt"
+            android:gravity="center_vertical">
+
+            <ImageView
+                android:layout_width="40pt"
+                android:layout_height="40pt"
+                android:src="@drawable/icon_message" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30pt"
+                android:text="分享"
+                android:textColor="#FFFFFF" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="60pt"
+            android:layout_marginTop="30pt"
+            android:gravity="center_vertical">
+
+            <ImageView
+                android:layout_width="40pt"
+                android:layout_height="40pt"
+                android:src="@drawable/icon_ricl" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30pt"
+                android:text="意见建议"
+                android:textColor="#FFFFFF" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="60pt"
+            android:layout_marginTop="30pt"
+            android:gravity="center_vertical">
+
+            <ImageView
+                android:layout_width="40pt"
+                android:layout_height="40pt"
+                android:src="@drawable/icon_setting" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30pt"
+                android:text="设置"
+                android:textColor="#FFFFFF" />
+
+        </LinearLayout>
+
+
+        <View
+            android:layout_width="2dp"
+            android:layout_height="0dp"
+            android:layout_weight="1"/>
+
+        <LinearLayout
+            android:layout_marginBottom="40pt"
+            android:gravity="center_vertical"
+            android:layout_width="match_parent"
+            android:layout_height="50dp">
+
+            <ImageView
+                android:layout_marginLeft="30pt"
+                android:layout_width="40pt"
+                android:layout_height="40pt"
+                android:src="@drawable/icon_wifi" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10pt"
+                android:text="关于"
+                android:textColor="#FFFFFF" />
+
+            <ImageView
+
+                android:layout_marginLeft="30pt"
+                android:layout_width="40pt"
+                android:layout_height="40pt"
+                android:src="@drawable/icon_skin" />
+
+            <TextView
+                android:layout_marginRight="50pt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10pt"
+                android:text="主题"
+                android:textColor="#FFFFFF" />
+
+        </LinearLayout>
+    </LinearLayout>
+</RelativeLayout>

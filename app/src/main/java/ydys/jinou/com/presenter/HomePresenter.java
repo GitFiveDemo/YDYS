@@ -33,9 +33,10 @@ public class HomePresenter extends BasePresenter<SimpleCallBack<String>> {
                     @Override
                     public void onNext(ResponseBody responseBody) {
                         try {
-                            String json = responseBody.string();
-                            getView().succeed(json);
+                            String string = responseBody.string();
+                            getView().succeed(string);
                         } catch (IOException e) {
+                            getView().failure(e.toString());
                             e.printStackTrace();
                         }
                     }
