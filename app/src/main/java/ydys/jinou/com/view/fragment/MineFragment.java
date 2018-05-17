@@ -2,13 +2,8 @@ package ydys.jinou.com.view.fragment;
 
 
 import android.util.Log;
-import android.view.View;
 
-import java.util.HashMap;
-
-import butterknife.OnClick;
 import ydys.jinou.com.R;
-import ydys.jinou.com.model.http.ServiceUrl;
 import ydys.jinou.com.presenter.HomePresenter;
 import ydys.jinou.com.view.base.BaseFragment;
 
@@ -35,7 +30,7 @@ public class MineFragment extends BaseFragment<HomePresenter> {
 
     @Override
     protected int setBaseView() {
-        return R.layout.home_fragment_layout;
+        return R.layout.main_fragment_layout;
     }
 
     @Override
@@ -48,14 +43,5 @@ public class MineFragment extends BaseFragment<HomePresenter> {
         Log.e(TAG, "error: "+error);
     }
 
-    @OnClick({R.id.click_but})
-    public void click(View view){
-        switch (view.getId()){
-            case R.id.click_but:
-                HashMap<String, String> map = new HashMap<>();
-                map.put("page","1");
-                homePresenter.getData(ServiceUrl.homeUrl,map);
-                break;
-        }
-    }
+
 }
