@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    android:background="@mipmap/my_bg_colorful"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/setting"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginEnd="37dp"
+        android:layout_marginTop="36dp"
+        android:src="@mipmap/my_set"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="37dp" />
+
+    <RelativeLayout
+        android:layout_marginTop="30dp"
+        android:background="@mipmap/bg_blue"
+        android:layout_below="@id/setting"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:id="@+id/relative_layout_history"
+            android:gravity="center_vertical"
+            android:layout_marginTop="30dp"
+            android:layout_width="match_parent"
+            android:layout_height="30dp">
+
+            <ImageView
+                android:id="@+id/image_history"
+                android:layout_marginLeft="30dp"
+                android:src="@mipmap/history"
+                android:layout_width="25dp"
+                android:layout_height="25dp" />
+
+            <TextView
+                android:id="@+id/text_histroy"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_toRightOf="@id/image_history"
+                android:text="历史"
+                android:textColor="#ffffff" />
+
+            <ImageView
+                android:layout_marginLeft="198dp"
+                android:layout_toRightOf="@id/text_histroy"
+                android:src="@mipmap/rigth"
+                android:layout_width="25dp"
+                android:layout_height="25dp" />
+
+        </RelativeLayout>
+
+        <View
+            android:id="@+id/view1"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@id/relative_layout_history"
+            android:layout_width="240dp"
+            android:layout_height="0.01dp"
+            android:background="#ffffff" />
+
+        <RelativeLayout
+            android:layout_below="@id/view1"
+            android:id="@+id/relative_layout_cache"
+            android:gravity="center_vertical"
+            android:layout_marginTop="30dp"
+            android:layout_width="match_parent"
+            android:layout_height="30dp">
+
+            <ImageView
+                android:id="@+id/image_cache"
+                android:layout_marginLeft="30dp"
+                android:src="@mipmap/cache"
+                android:layout_width="25dp"
+                android:layout_height="25dp" />
+
+            <TextView
+                android:id="@+id/text_cache"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_toRightOf="@id/image_cache"
+                android:text="下载"
+                android:textColor="#ffffff" />
+
+            <ImageView
+                android:layout_marginLeft="198dp"
+                android:layout_toRightOf="@id/text_cache"
+                android:src="@mipmap/rigth"
+                android:layout_width="25dp"
+                android:layout_height="25dp" />
+
+        </RelativeLayout>
+
+        <View
+            android:id="@+id/view2"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@id/relative_layout_cache"
+            android:layout_width="240dp"
+            android:layout_height="0.01dp"
+            android:background="#ffffff" />
+
+        <RelativeLayout
+            android:layout_below="@id/view2"
+            android:id="@+id/relative_layout_collect"
+            android:gravity="center_vertical"
+            android:layout_marginTop="30dp"
+            android:layout_width="match_parent"
+            android:layout_height="30dp">
+
+            <ImageView
+                android:id="@+id/image_collect"
+                android:layout_marginLeft="30dp"
+                android:src="@mipmap/collect"
+                android:layout_width="25dp"
+                android:layout_height="25dp" />
+
+            <TextView
+                android:id="@+id/text_collect"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_toRightOf="@id/image_collect"
+                android:text="收藏"
+                android:textColor="#ffffff" />
+
+            <ImageView
+                android:layout_marginLeft="198dp"
+                android:layout_toRightOf="@id/text_collect"
+                android:src="@mipmap/rigth"
+                android:layout_width="25dp"
+                android:layout_height="25dp" />
+
+        </RelativeLayout>
+
+        <View
+            android:id="@+id/view3"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@id/relative_layout_collect"
+            android:layout_width="240dp"
+            android:layout_height="0.01dp"
+            android:background="#ffffff" />
+
+        <RelativeLayout
+            android:layout_below="@id/view3"
+            android:id="@+id/relative_layout_motif"
+            android:gravity="center_vertical"
+            android:layout_marginTop="30dp"
+            android:layout_width="match_parent"
+            android:layout_height="30dp">
+
+            <ImageView
+                android:id="@+id/image_motif"
+                android:layout_marginLeft="30dp"
+                android:src="@mipmap/motif"
+                android:layout_width="25dp"
+                android:layout_height="25dp" />
+
+            <TextView
+                android:id="@+id/text_motif"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_toRightOf="@id/image_motif"
+                android:text="主题"
+                android:textColor="#ffffff" />
+
+            <ImageView
+                android:layout_marginLeft="198dp"
+                android:layout_toRightOf="@id/text_motif"
+                android:src="@mipmap/rigth"
+                android:layout_width="25dp"
+                android:layout_height="25dp" />
+
+        </RelativeLayout>
+
+        <View
+            android:id="@+id/view4"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@id/relative_layout_motif"
+            android:layout_width="240dp"
+            android:layout_height="0.01dp"
+            android:background="#ffffff" />
+
+    </RelativeLayout>
+
+</RelativeLayout>
