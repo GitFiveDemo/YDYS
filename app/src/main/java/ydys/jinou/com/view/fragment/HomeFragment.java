@@ -89,8 +89,7 @@ public class HomeFragment extends BaseFragment<HomePresenter> {
 
             progressDialog = ProgressDialog.show(getActivity(), title,
                     message, true, false);
-
-
+            
         } else if (progressDialog.isShowing()) {
             progressDialog.setTitle(title);
             progressDialog.setMessage(message);
@@ -182,8 +181,6 @@ public class HomeFragment extends BaseFragment<HomePresenter> {
                 break;
         }
     }
-
-
 
     @Subscribe(threadMode = ThreadMode.MAIN, priority = 1000)
     public void onToastEvent(Integer msg) {//参数就是订阅的事件(其实就是传递数据的类)

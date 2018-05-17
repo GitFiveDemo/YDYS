@@ -7,12 +7,17 @@ import android.support.annotation.Nullable;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
+import android.view.KeyEvent;
 import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.ashokvarma.bottomnavigation.BottomNavigationBar;
 import com.ashokvarma.bottomnavigation.BottomNavigationItem;
+
+import org.greenrobot.eventbus.EventBus;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -46,6 +51,42 @@ public class MainActivity extends AppCompatActivity {
         ButterKnife.bind(this);
         init();
         initBottomMenu();
+
+        sideLayout.setPanelSlideListener(new SlideLayout.PanelSlideListener() {
+            @Override
+            public void onPanelOpened() {
+                EventBus.getDefault().post(1);
+            }
+
+            @Override
+            public void onPanelClosed() {
+                EventBus.getDefault().post(-1);
+            }
+
+            @Override
+            public void onPanelSlide(float percent) {
+                EventBus.getDefault().post(0);
+            }
+        });
+    }
+
+    //点击返回两次退出app
+    private long exitTime = 0;
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        if (keyCode == KeyEvent.KEYCODE_BACK
+                && event.getAction() == KeyEvent.ACTION_DOWN) {
+            if ((System.currentTimeMillis() - exitTime) > 2000) {
+                //弹出提示，可以有多种方式
+                Toast.makeText(getApplicationContext(), "再按一次退出程序", Toast.LENGTH_SHORT).show();
+                exitTime = System.currentTimeMillis();
+            } else {
+                finish();
+            }
+            return false;
+        }
+
+        return super.onKeyDown(keyCode, event);
     }
 
     private void init() {
