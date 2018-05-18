@@ -11,6 +11,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import butterknife.ButterKnife;
+import butterknife.Unbinder;
 import ydys.jinou.com.R;
 
 /**
@@ -20,13 +22,15 @@ import ydys.jinou.com.R;
 public abstract class BaseActivity extends AppCompatActivity {
 
     private ImageView backImage;
-    private TextView titleTv;
+    public TextView titleTv;
+    private Unbinder bind;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_base);
         init();
+        bind = ButterKnife.bind(this);
         initView();
         initDate();
     }
