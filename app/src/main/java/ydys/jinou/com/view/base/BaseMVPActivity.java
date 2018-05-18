@@ -2,8 +2,6 @@ package ydys.jinou.com.view.base;
 
 import android.view.View;
 
-import butterknife.ButterKnife;
-import butterknife.Unbinder;
 import ydys.jinou.com.presenter.BasePresenter;
 import ydys.jinou.com.view.callback.SimpleCallBack;
 
@@ -14,7 +12,6 @@ import ydys.jinou.com.view.callback.SimpleCallBack;
 public abstract class BaseMVPActivity<T extends BasePresenter> extends BaseActivity implements SimpleCallBack<String> {
 
     private T presenter;
-    private Unbinder bind;
 
     @Override
     protected void initView() {
@@ -34,9 +31,6 @@ public abstract class BaseMVPActivity<T extends BasePresenter> extends BaseActiv
         // 解除关联
         if (presenter != null)
             presenter.detachView();
-
-        if (bind != null){}
-            bind.unbind();
     }
 
     @Override
@@ -46,9 +40,7 @@ public abstract class BaseMVPActivity<T extends BasePresenter> extends BaseActiv
 
     @Override
     protected View getChildView() {
-        View mvpView = getMVPView();
-        bind = ButterKnife.bind(this, mvpView);
-        return mvpView;
+        return getMVPView();
     }
 
     /**

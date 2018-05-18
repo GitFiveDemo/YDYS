@@ -107,7 +107,7 @@ public class MessageMovieActivity extends BaseMVPActivity<HomePresenter> impleme
 
     @Override
     public void succeed(String s) {
-
+        Log.e("AAA","succeed");
 
         HomeBean homeBean = new Gson().fromJson(s, HomeBean.class);
         List<HomeBean.RetBean.ListBean.ChildListBean> childList = homeBean.getRet().getList().get(0).getChildList();
