@@ -23,9 +23,10 @@
             </intent-filter>
         </activity>
         <activity android:name=".view.activity.SerchMovieActivity" />
-        <activity android:name=".view.activity.BoonActivity" />
-        <activity android:name=".view.activity.MessageMovieActivity" />
         <activity android:name=".view.activity.SettingActivity"></activity>
+        <activity android:name=".view.activity.SerchMovieActivity" />
+        <activity android:name=".view.activity.BoonActivity" />
+        <activity android:name=".view.activity.CGSettingActivity"/>
     </application>
 
 </manifest>
