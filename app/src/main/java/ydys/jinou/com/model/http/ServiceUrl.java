@@ -7,4 +7,5 @@ package ydys.jinou.com.model.http;
 public interface ServiceUrl {
     String baseUrl = "http://api.svipmovie.com/";
     String homeUrl = "front/homePageApi/homePage.do";
+    String specialUrl="front/columns/getVideoList.do";
 }
