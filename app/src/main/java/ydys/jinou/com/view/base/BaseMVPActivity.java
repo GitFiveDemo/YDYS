@@ -1,5 +1,6 @@
 package ydys.jinou.com.view.base;
 
+import android.util.Log;
 import android.view.View;
 
 import ydys.jinou.com.presenter.BasePresenter;
@@ -15,8 +16,8 @@ public abstract class BaseMVPActivity<T extends BasePresenter> extends BaseActiv
 
     @Override
     protected void initView() {
-        presenter = getPresenter();
-
+        presenter = this.getPresenter();
+        Log.e("AAA","getPresenter"+presenter);
         if (presenter == null)
             throw new NullPointerException("网络请求,需要传入Presenter");
 

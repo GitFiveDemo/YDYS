@@ -136,4 +136,9 @@ public class BoonActivity extends BaseMVPActivity<HomePresenter> implements Simp
             ((StaggeredGridLayoutManager) boonRecycler.getLayoutManager()).scrollToPositionWithOffset(lastPosition, lastOffset);
         }
     }
+
+    @Override
+    protected boolean isHideTitle() {
+        return false;
+    }
 }
