@@ -27,6 +27,7 @@
         <activity android:name=".view.activity.MessageMovieActivity" />
         <activity android:name=".view.activity.BoonActivity" />
         <activity android:name=".view.activity.CGSettingActivity"/>
+        <activity android:name=".view.activity.SpecialDetailActivity"/>
     </application>
 
 </manifest>
