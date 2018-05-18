@@ -6,7 +6,7 @@ import android.view.View;
 import ydys.jinou.com.R;
 import ydys.jinou.com.view.base.BaseActivity;
 
-public class SettingActivity extends BaseActivity {
+public class CGSettingActivity extends BaseActivity {
 
 
     @Override
@@ -21,7 +21,7 @@ public class SettingActivity extends BaseActivity {
 
     @Override
     protected View getChildView() {
-        View view = View.inflate(this, R.layout.activity_setting,null);
+        View view = View.inflate(this, R.layout.activity_gc_setting,null);
         return view;
     }
 }
