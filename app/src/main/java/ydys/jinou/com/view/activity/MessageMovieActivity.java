@@ -73,7 +73,6 @@ public class MessageMovieActivity extends BaseMVPActivity<HomePresenter> impleme
         Map<String,String> map=new HashMap<>();
         map.put("mediaId",id);
         homePresenter.getData(ServiceUrl.message_url, map);
-        homePresenter.haha();
         return homePresenter;
     }
 

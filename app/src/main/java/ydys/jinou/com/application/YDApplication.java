@@ -7,10 +7,9 @@ import android.os.Handler;
 import android.os.Process;
 import android.view.WindowManager;
 
-<<<<<<< HEAD
 import com.facebook.drawee.backends.pipeline.Fresco;
-=======
->>>>>>> 修复bug
+
+import retrofit2.http.HEAD;
 
 /**
  * author: 晨光光
@@ -24,13 +23,10 @@ public class YDApplication extends Application {
     public void onCreate() {
         super.onCreate();
         resetDensity();//注意不要漏掉
-<<<<<<< HEAD
         //初始化frsco
         Fresco.initialize(this);
-=======
         myTid = Process.myTid();
         handler = new Handler();
->>>>>>> 修复bug
     }
 
     @Override
