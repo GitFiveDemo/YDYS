@@ -8,7 +8,6 @@ import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
-import android.widget.Toast;
 
 import com.google.gson.Gson;
 import com.scwang.smartrefresh.layout.SmartRefreshLayout;
@@ -30,13 +29,12 @@ import java.util.TimerTask;
 
 import butterknife.BindView;
 import butterknife.OnClick;
-import butterknife.Unbinder;
 import ydys.jinou.com.R;
 import ydys.jinou.com.model.bean.HomeBean;
 import ydys.jinou.com.model.http.ServiceUrl;
 import ydys.jinou.com.presenter.HomePresenter;
 import ydys.jinou.com.view.activity.SerchMovieActivity;
-import ydys.jinou.com.view.adapter.MyAdapter;
+import ydys.jinou.com.view.adapter.HomeAdapter;
 import ydys.jinou.com.view.base.BaseFragment;
 import ydys.jinou.com.view.custom.GlideImageLoader;
 
@@ -56,7 +54,7 @@ public class HomeFragment extends BaseFragment<HomePresenter> {
     SmartRefreshLayout duanziSmart;
     private String TAG = "HomeFragment";
     private HomePresenter homePresenter;
-    private MyAdapter myAdapter;
+    private HomeAdapter homeAdapter;
     private ProgressDialog progressDialog;
 
     @Override
@@ -137,9 +135,9 @@ public class HomeFragment extends BaseFragment<HomePresenter> {
         List<HomeBean.RetBean.ListBean.ChildListBean> list = homeBean.getRet().getList().get(0).getChildList();
 
         Log.e(TAG, "succeed: " + list);
-        myAdapter = new MyAdapter(getActivity(), list);
+        homeAdapter = new HomeAdapter(getActivity(), list);
 
-        recyclerview.setAdapter(myAdapter);
+        recyclerview.setAdapter(homeAdapter);
 
 
         //获取图片

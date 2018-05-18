@@ -4,76 +4,95 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
-    <RelativeLayout
-
-        android:layout_width="match_parent"
+    <ScrollView
+        android:scrollbars="none"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content">
-        <LinearLayout
-            android:id="@+id/one"
-            android:orientation="horizontal"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
-            <TextView
-                android:textColor="#716f6f"
-                android:text="导演："
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
-            <TextView
-                android:textColor="#716f6f"
-                android:id="@+id/daoyan"
-                android:text="鲁伯特·瓦耶特"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
-        </LinearLayout>
-        <LinearLayout
-            android:layout_below="@+id/one"
-            android:id="@+id/two"
-            android:orientation="horizontal"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
-            <TextView
-                android:textColor="#716f6f"
-                android:text="主演："
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
-            <TextView
-                android:textColor="#716f6f"
-                android:id="@+id/zhuyan"
-                android:text="鲁伯特·瓦耶特/鲁伯特·瓦耶特/鲁伯特·瓦耶特/鲁伯特·瓦耶特/鲁伯特·瓦耶特"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
-        </LinearLayout>
-        <TextView
-            android:textStyle="bold"
-            android:textColor="#ffff"
-            android:id="@+id/zhankai"
-            android:layout_below="@+id/two"
-            android:layout_alignParentRight="true"
-            android:text="展开"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
-        <LinearLayout
-            android:layout_marginTop="5dp"
-            android:layout_below="@+id/zhankai"
-            android:id="@+id/three"
-            android:orientation="horizontal"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
-            <TextView
-                android:textColor="#716f6f"
-                android:text="简介："
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
-            <TextView
-                android:textColor="#716f6f"
-                android:id="@+id/jianjie"
-                android:text="卡数据库的巨大大空姐萨克就打开卡数据库的巨大大空姐萨克就打开卡数据库的巨大大空姐萨克就打开卡数据库的巨大大空姐萨克就打开卡数据库的巨大大空姐萨克就打开卡数据库的巨大大空姐萨克就打开卡数据库的巨大大空姐萨克就打开"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
-        </LinearLayout>
-    </RelativeLayout>
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/messagemovie"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"></android.support.v7.widget.RecyclerView>
+      <LinearLayout
+          android:orientation="vertical"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content">
+          <RelativeLayout
+
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content">
+              <LinearLayout
+                  android:id="@+id/one"
+                  android:orientation="horizontal"
+                  android:layout_width="wrap_content"
+                  android:layout_height="wrap_content">
+                  <TextView
+                      android:textSize="18dp"
+                      android:textColor="#716f6f"
+                      android:text="导演："
+                      android:layout_width="wrap_content"
+                      android:layout_height="wrap_content" />
+                  <TextView
+                      android:textSize="18dp"
+                      android:textColor="#716f6f"
+                      android:id="@+id/daoyan"
+                      android:text=""
+                      android:layout_width="wrap_content"
+                      android:layout_height="wrap_content" />
+              </LinearLayout>
+              <LinearLayout
+                  android:layout_below="@+id/one"
+                  android:id="@+id/two"
+                  android:orientation="horizontal"
+                  android:layout_width="wrap_content"
+                  android:layout_height="wrap_content">
+                  <TextView
+                      android:textSize="18dp"
+                      android:textColor="#716f6f"
+                      android:text="主演："
+                      android:layout_width="wrap_content"
+                      android:layout_height="wrap_content" />
+                  <TextView
+                      android:textSize="18dp"
+                      android:textColor="#716f6f"
+                      android:id="@+id/zhuyan"
+                      android:text=""
+                      android:layout_width="wrap_content"
+                      android:layout_height="wrap_content" />
+              </LinearLayout>
+              <TextView
+                  android:textSize="18dp"
+                  android:textStyle="bold"
+                  android:textColor="#ffff"
+                  android:id="@+id/zhankai"
+                  android:layout_below="@+id/two"
+                  android:layout_alignParentRight="true"
+                  android:text="展开"
+                  android:layout_width="wrap_content"
+                  android:layout_height="wrap_content" />
+              <LinearLayout
+                  android:visibility="gone"
+                  android:layout_marginTop="5dp"
+                  android:layout_below="@+id/zhankai"
+                  android:id="@+id/three"
+                  android:orientation="horizontal"
+                  android:layout_width="wrap_content"
+                  android:layout_height="wrap_content">
+                  <TextView
+                      android:textSize="18dp"
+                      android:textColor="#716f6f"
+                      android:text="简介："
+                      android:layout_width="wrap_content"
+                      android:layout_height="wrap_content" />
+                  <TextView
+                      android:textSize="18dp"
+                      android:textColor="#716f6f"
+                      android:id="@+id/jianjie"
+                      android:text=""
+                      android:layout_width="wrap_content"
+                      android:layout_height="wrap_content" />
+              </LinearLayout>
+          </RelativeLayout>
+          <android.support.v7.widget.RecyclerView
+              android:id="@+id/messagemovie"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"></android.support.v7.widget.RecyclerView>
+
+      </LinearLayout>
+    </ScrollView>
 </LinearLayout>

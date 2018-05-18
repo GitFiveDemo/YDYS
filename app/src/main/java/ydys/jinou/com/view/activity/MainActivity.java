@@ -107,6 +107,9 @@ public class MainActivity extends AppCompatActivity {
         // 默认显示homeFragment
         homeFragment = new HomeFragment();
         supportFragmentManager.beginTransaction().add(R.id.main_frame, homeFragment).commit();
+
+        // 首页默认隐藏 titlebar
+        mainTitle.setVisibility(View.GONE);
     }
 
     private void initBottomMenu() {
@@ -133,9 +136,12 @@ public class MainActivity extends AppCompatActivity {
                 FragmentTransaction toggleTransaction = supportFragmentManager.beginTransaction();
                 int backgroundColor = Color.parseColor("#00ACA0");
                 String titleStr = "精选";
+                boolean isHideTitle = false;
                 switch (position) {
                     case 0:
+                        isHideTitle = true;
                         toggleTransaction.show(homeFragment);
+
                         break;
                     case 1:
                         if (specialFragment == null) {
@@ -171,7 +177,13 @@ public class MainActivity extends AppCompatActivity {
                         titleStr = "我的";
                         break;
                 }
-                mainTitle.setText(titleStr);
+                if (isHideTitle){
+                    mainTitle.setVisibility(View.GONE);
+                }else{
+                    mainTitle.setVisibility(View.VISIBLE);
+                    mainTitle.setText(titleStr);
+                }
+
                 mainTitle.setBackgroundColor(backgroundColor);
 
                 toggleTransaction.commit();

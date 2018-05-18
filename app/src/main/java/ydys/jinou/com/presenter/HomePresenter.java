@@ -1,7 +1,10 @@
 package ydys.jinou.com.presenter;
 
 
+import android.util.Log;
+
 import java.io.IOException;
+import java.util.HashMap;
 import java.util.Map;
 
 import io.reactivex.Observer;
@@ -20,7 +23,9 @@ public class HomePresenter extends BasePresenter<SimpleCallBack<String>> {
 
 
     public void getData(String url, Map<String,String>map) {
-
+        Log.e("getData","getData");
+        if (map == null)
+            map = new HashMap<>();
         CommonModel.getApiService().doGet(url,map)
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribeOn(Schedulers.io())
@@ -39,11 +44,13 @@ public class HomePresenter extends BasePresenter<SimpleCallBack<String>> {
                             getView().failure(e.toString());
                             e.printStackTrace();
                         }
+                        Log.e("homePresenter","onNext");
                     }
 
                     @Override
                     public void onError(Throwable e) {
                         getView().failure(e.toString());
+                        Log.e("homePresenter","onError"+e.toString());
                     }
 
                     @Override
@@ -51,5 +58,9 @@ public class HomePresenter extends BasePresenter<SimpleCallBack<String>> {
 
                     }
                 });
+    }
+
+    public void haha(){
+        Log.e("AAA","aaa");
     }
 }

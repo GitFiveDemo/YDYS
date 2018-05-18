@@ -8,9 +8,11 @@ import android.view.KeyEvent;
 import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
 import ydys.jinou.com.R;
@@ -21,9 +23,13 @@ import ydys.jinou.com.R;
  */
 public abstract class BaseActivity extends AppCompatActivity {
 
-    private ImageView backImage;
-    public TextView titleTv;
     private Unbinder bind;
+    @BindView(R.id.base_title_tv)
+    TextView titleTv;
+    @BindView(R.id.base_back_img)
+    ImageView backImage;
+    @BindView(R.id.base_title_bar)
+    RelativeLayout titleBar;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -35,7 +41,7 @@ public abstract class BaseActivity extends AppCompatActivity {
         initDate();
 
         // 是否隐藏标题
-        if (isHideTitle()) titleTv.setVisibility(View.GONE);
+        if (isHideTitle()) titleBar.setVisibility(View.GONE);
     }
 
     // 设置标题

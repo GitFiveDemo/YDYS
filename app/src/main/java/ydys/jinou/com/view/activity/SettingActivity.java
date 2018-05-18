@@ -33,7 +33,7 @@ public class SettingActivity extends BaseActivity{
 
     @Override
     protected void initView() {
-        titleTv.setText("设置");
+        setActivityTitle("设置");
     }
 
     @Override

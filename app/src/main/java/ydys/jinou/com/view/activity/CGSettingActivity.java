@@ -24,4 +24,9 @@ public class CGSettingActivity extends BaseActivity {
         View view = View.inflate(this, R.layout.activity_gc_setting,null);
         return view;
     }
+
+    @Override
+    protected boolean isHideTitle() {
+        return false;
+    }
 }
