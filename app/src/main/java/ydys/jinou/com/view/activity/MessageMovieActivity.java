@@ -10,6 +10,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.dl7.player.media.IjkPlayerView;
+import com.google.gson.Gson;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -25,10 +26,12 @@ import ydys.jinou.com.model.http.ServiceUrl;
 import ydys.jinou.com.presenter.HomePresenter;
 import ydys.jinou.com.view.adapter.MyAdapters;
 import ydys.jinou.com.view.base.BaseActivity;
+import ydys.jinou.com.view.base.BaseMVPActivity;
+import ydys.jinou.com.view.callback.SimpleCallBack;
 import ydys.jinou.com.view.fragment.Home_JJ_Fragment;
 import ydys.jinou.com.view.fragment.Home_pl_Framgent;
 
-public class MessageMovieActivity extends BaseActivity {
+public class MessageMovieActivity extends BaseMVPActivity<HomePresenter> implements SimpleCallBack<String>{
 
     private static final String TAG = "sssssss";
     @BindView(R.id.back_mess)
@@ -42,17 +45,24 @@ public class MessageMovieActivity extends BaseActivity {
     List<Fragment> list;
     List<String> data;
     @BindView(R.id.tuijian_viewpager)
-    ViewPager tuijianViewpager;
+    ViewPager viewpager;
     @BindView(R.id.name)
     TextView name;
     private HomePresenter homePresenter;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_message_movie);
-        ButterKnife.bind(this);
+    protected void initView() {
+
+    }
+
+    @Override
+    protected void initDate() {
         initTab();
+    }
+
+    @Override
+    protected boolean isHideTitle() {
+        return true;
     }
 
     private void initTab() {
@@ -63,30 +73,25 @@ public class MessageMovieActivity extends BaseActivity {
         data.add("简介");
         data.add("评论");
         MyAdapters myAdapter = new MyAdapters(getSupportFragmentManager(), list, data);
-        tuijianViewpager.setAdapter(myAdapter);
-        tablayout.setupWithViewPager(tuijianViewpager);
+        viewpager.setAdapter(myAdapter);
+        tablayout.setupWithViewPager(viewpager);
     }
 
     @Override
-    protected void initView() {
-
+    protected HomePresenter getPresenter() {
+        homePresenter= new HomePresenter();
+        homePresenter.getData(ServiceUrl.homeUrl, null);
+        return homePresenter;
     }
 
     @Override
-    protected void initDate() {
-        homePresenter = new HomePresenter();
-        Map<String, String> map = new HashMap<>();
-        homePresenter.getData(ServiceUrl.homeUrl, map);
-        List<HomeBean.RetBean.ListBean.ChildListBean> list = new ArrayList<>();
-        Log.e(TAG, "initDate: "+list );
-        playerView.setVideoPath(list.get(list.size()).getLoadURL());
-        name.setText(list.get(list.size()).getTitle());
-
+    protected View getMVPView() {
+        return View.inflate(this, R.layout.activity_message_movie, null);
     }
 
     @Override
-    protected View getChildView() {
-        return null;
+    protected void functionExtension() {
+
     }
 
     @OnClick({R.id.back_mess, R.id.soucang})
@@ -98,5 +103,26 @@ public class MessageMovieActivity extends BaseActivity {
             case R.id.soucang:
                 break;
         }
+    }
+
+    @Override
+    public void succeed(String s) {
+
+
+        HomeBean homeBean = new Gson().fromJson(s, HomeBean.class);
+        List<HomeBean.RetBean.ListBean.ChildListBean> childList = homeBean.getRet().getList().get(0).getChildList();
+        Log.e(TAG, "succeed: "+childList );
+        String title = childList.get(0).getTitle();
+        Log.e(TAG, "succeed: "+title );
+        String url = childList.get(0).getLoadURL();
+        Log.e(TAG, "succeed: "+url );
+        playerView.setVideoPath(url);
+        name.setText(title);
+
+    }
+
+    @Override
+    public void failure(String error) {
+
     }
 }

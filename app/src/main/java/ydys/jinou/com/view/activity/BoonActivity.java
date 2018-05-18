@@ -42,4 +42,9 @@ public class BoonActivity extends BaseMVPActivity<HomePresenter> implements Simp
     public void failure(String error) {
         Log.e("succeed", "succeed: " + error);
     }
+
+    @Override
+    protected boolean isHideTitle() {
+        return false;
+    }
 }

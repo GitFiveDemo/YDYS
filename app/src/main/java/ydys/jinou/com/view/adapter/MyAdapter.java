@@ -1,6 +1,7 @@
 package ydys.jinou.com.view.adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.res.Configuration;
 import android.net.Uri;
 import android.support.annotation.NonNull;
@@ -18,6 +19,7 @@ import java.util.List;
 
 import ydys.jinou.com.R;
 import ydys.jinou.com.model.bean.HomeBean;
+import ydys.jinou.com.view.activity.MessageMovieActivity;
 
 public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
     private Context context;
@@ -47,6 +49,13 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
             String s = pic.split("\\|")[0];
             Glide.with(context).load(s).into(imageview);
         }
+        holder.getImageview().setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(context, MessageMovieActivity.class);
+                context.startActivity(intent);
+            }
+        });
 
         String title = list.get(position).getTitle();
         movie_name.setText(title);
@@ -68,6 +77,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
             super(itemView);
             imageview = itemView.findViewById(R.id.imageview);
             movie_name = itemView.findViewById(R.id.movie_name);
+
         }
 
         public TextView getMovie_name() {

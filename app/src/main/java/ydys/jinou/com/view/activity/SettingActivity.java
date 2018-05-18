@@ -24,4 +24,9 @@ public class SettingActivity extends BaseActivity {
         View view = View.inflate(this, R.layout.activity_setting,null);
         return view;
     }
+
+    @Override
+    protected boolean isHideTitle() {
+        return false;
+    }
 }
