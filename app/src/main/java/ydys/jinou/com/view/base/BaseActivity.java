@@ -35,25 +35,6 @@ public abstract class BaseActivity extends AppCompatActivity {
         initDate();
     }
 
-    //点击返回两次退出app
-    private long exitTime = 0;
-    @Override
-    public boolean onKeyDown(int keyCode, KeyEvent event) {
-        if (keyCode == KeyEvent.KEYCODE_BACK
-                && event.getAction() == KeyEvent.ACTION_DOWN) {
-            if ((System.currentTimeMillis() - exitTime) > 2000) {
-                //弹出提示，可以有多种方式
-                Toast.makeText(getApplicationContext(), "再按一次退出程序", Toast.LENGTH_SHORT).show();
-                exitTime = System.currentTimeMillis();
-            } else {
-                finish();
-            }
-            return false;
-        }
-
-        return super.onKeyDown(keyCode, event);
-    }
-
     // 设置标题
     protected void setActivityTitle(String titleStr) {
         titleTv.setText(titleStr);
