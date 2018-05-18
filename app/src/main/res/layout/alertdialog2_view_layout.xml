@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/image_my_user"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="35dp"
+        android:layout_marginTop="31dp"
+        android:src="@mipmap/my_user"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="35dp" />
+
+    <TextView
+        android:textColor="#0033ff"
+        android:id="@+id/text_guanyu"
+        android:textSize="25sp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/image_my_user"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="98dp"
+        android:text="关于我们"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="98dp" />
+
+    <TextView
+        android:textColor="#0033ff"
+        android:id="@+id/text_boke"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignStart="@+id/image_my_user"
+        android:layout_marginTop="88dp"
+        android:text="博客:"
+        android:layout_alignLeft="@+id/image_my_user" />
+
+    <TextView
+        android:textColor="#0033ff"
+        android:id="@+id/text_ydys"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/text_guanyu"
+        android:layout_alignTop="@+id/text_boke"
+        android:text="YDYS"
+        android:layout_alignLeft="@+id/text_guanyu" />
+
+
+    <TextView
+        android:textColor="#0033ff"
+        android:id="@+id/text_github"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignStart="@+id/image_my_user"
+        android:layout_marginTop="123dp"
+        android:text="Github:"
+        android:layout_alignLeft="@+id/image_my_user" />
+
+    <TextView
+        android:id="@+id/text_jinou"
+        android:textColor="#0033ff"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/text_guanyu"
+        android:layout_alignTop="@+id/text_github"
+        android:text="金瓯传媒"
+        android:layout_alignLeft="@+id/text_guanyu" />
+
+
+    <TextView
+        android:id="@+id/text_guanbi"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginEnd="53dp"
+        android:layout_marginTop="151dp"
+        android:paddingBottom="20dp"
+        android:text="关闭"
+        android:textColor="#0033ff"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="53dp" />
+
+
+</RelativeLayout>
