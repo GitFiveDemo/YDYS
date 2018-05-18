@@ -6,6 +6,7 @@ package ydys.jinou.com.model.http;
  */
 public interface ServiceUrl {
     String baseUrl = "http://api.svipmovie.com/";
+    String gkBoonUrl = "http://gank.io/api/data/福利/10/";
     String homeUrl = "front/homePageApi/homePage.do";
     String specialUrl="front/columns/getVideoList.do";
 }

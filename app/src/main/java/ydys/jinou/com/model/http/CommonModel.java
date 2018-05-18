@@ -18,7 +18,7 @@ public class CommonModel {
 
     private static APIService apiService;
 
-    public static APIService getApiService() {
+    public static APIService getApiService(String baseurl) {
         if (apiService == null) {
             synchronized (CommonModel.class) {
               //  HttpLoggingInterceptor logInterceptor = new HttpLoggingInterceptor(new LoggerInterceptor());
@@ -31,7 +31,7 @@ public class CommonModel {
                             .build();
 
                     apiService = new Retrofit.Builder()
-                            .baseUrl(ServiceUrl.baseUrl)
+                            .baseUrl(baseurl)
                             .addConverterFactory(GsonConverterFactory.create())
                             .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
                             .client(client)
