@@ -4,11 +4,8 @@
     android:orientation="vertical"
     android:layout_height="match_parent">
 
-  <android.support.v7.widget.RecyclerView
-      android:layout_width="match_parent"
-      android:layout_height="match_parent"
-      android:id="@+id/recyle_view"></android.support.v7.widget.RecyclerView>
-
-
-
+    <com.facebook.drawee.view.SimpleDraweeView
+        android:id="@+id/simp_detail_view"
+        android:layout_width="100dp"
+        android:layout_height="120dp" />
 </LinearLayout>

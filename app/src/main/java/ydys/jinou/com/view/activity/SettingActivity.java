@@ -6,8 +6,6 @@ import android.graphics.Paint;
 import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
 import android.view.View;
-import android.widget.Button;
-import android.widget.EditText;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -38,7 +36,7 @@ public class SettingActivity extends BaseActivity{
 
     @Override
     protected void initView() {
-        titleTv.setText("设置");
+        setActivityTitle("设置");
     }
 
     @Override
@@ -162,5 +160,10 @@ public class SettingActivity extends BaseActivity{
                 Toast.makeText(this,"反馈",Toast.LENGTH_SHORT).show();
                 break;
         }
+    }
+
+    @Override
+    protected boolean isHideTitle() {
+        return false;
     }
 }
