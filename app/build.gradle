@@ -1,5 +1,5 @@
 apply plugin: 'com.android.application'
-
+apply plugin: 'org.greenrobot.greendao' // apply plugin
 android {
     compileSdkVersion 27
     defaultConfig {
@@ -49,5 +49,13 @@ dependencies {
     implementation 'com.github.open-android:IjkPlayer:1.0.0'
     // eventBus
     implementation 'org.greenrobot:eventbus:3.1.1'
+    // greenDao
+    implementation 'org.greenrobot:greendao:3.2.2' // add library
+}
 
+//配置数据库的信息
+greendao {
+    schemaVersion 1
+    daoPackage 'ydys.jinou.com.model.db'
+    targetGenDir 'src/main/java'
 }

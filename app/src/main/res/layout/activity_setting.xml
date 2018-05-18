@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:background="@drawable/bg_colorful"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".view.activity.SettingActivity">
+
+    <LinearLayout
+        android:background="#10FFFFFF"
+        android:layout_marginTop="20dp"
+        android:layout_width="match_parent"
+        android:gravity="center_vertical"
+        android:layout_height="50dp">
+
+        <TextView
+            android:layout_marginLeft="10dp"
+            android:textColor="#FFFFFF"
+            android:textSize="16sp"
+            android:text="推荐给好友"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <View
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="1dp"/>
+
+        <ImageView
+            android:layout_marginRight="10dp"
+            android:src="@drawable/icon_exit"
+            android:layout_width="30dp"
+            android:layout_height="30dp" />
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:gravity="center_vertical"
+        android:layout_height="50dp"
+        android:background="#10FFFFFF"
+        android:layout_marginTop="3dp"
+        android:layout_width="match_parent"
+        >
+
+        <TextView
+            android:layout_marginLeft="10dp"
+            android:textColor="#FFFFFF"
+            android:textSize="16sp"
+            android:text="清理缓存"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <View
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="1dp"/>
+
+        <TextView
+            android:layout_marginRight="10dp"
+            android:textColor="#FFFFFF"
+            android:textSize="16sp"
+            android:text="36.00kb"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:gravity="center_vertical"
+        android:layout_height="50dp"
+        android:background="#10FFFFFF"
+        android:layout_marginTop="20dp"
+        android:layout_width="match_parent"
+        >
+
+        <TextView
+            android:layout_marginLeft="10dp"
+            android:textColor="#FFFFFF"
+            android:textSize="16sp"
+            android:text="关于我么"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <View
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="1dp"/>
+
+        <ImageView
+            android:layout_marginRight="10dp"
+            android:src="@drawable/icon_exit"
+            android:layout_width="30dp"
+            android:layout_height="30dp" />
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:gravity="center_vertical"
+        android:layout_height="50dp"
+        android:background="#10FFFFFF"
+        android:layout_marginTop="3dp"
+        android:layout_width="match_parent"
+        >
+
+        <TextView
+            android:layout_marginLeft="10dp"
+            android:textColor="#FFFFFF"
+            android:textSize="16sp"
+            android:text="推荐给好友"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <View
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="1dp"/>
+
+        <ImageView
+            android:layout_marginRight="10dp"
+            android:src="@drawable/icon_exit"
+            android:layout_width="30dp"
+            android:layout_height="30dp" />
+
+    </LinearLayout>
+
+
+
+
+
+</LinearLayout>
