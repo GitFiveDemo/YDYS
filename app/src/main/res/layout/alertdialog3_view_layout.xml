@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:textSize="25sp"
+        android:id="@+id/text_fankui_title"
+        android:textColor="#ffffff"
+        android:gravity="center"
+        android:background="#369BD1"
+        android:text="反馈"
+        android:layout_width="match_parent"
+        android:layout_height="50dp" />
+
+    <EditText
+        android:layout_marginTop="16dp"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/edit_text_youxiang"
+        android:layout_below="@id/text_fankui_title"
+        android:hint="请输入您的邮箱(必填)"
+        android:layout_width="260dp"
+        android:layout_height="40dp" />
+
+    <EditText
+        android:id="@+id/edit_text_fankui"
+        android:layout_marginTop="16dp"
+        android:layout_centerHorizontal="true"
+        android:gravity="top"
+        android:background="@null"
+        android:layout_below="@id/edit_text_youxiang"
+        android:hint="请输入您的反馈..."
+        android:layout_width="250dp"
+        android:layout_height="80dp" />
+
+
+    <Button
+        android:id="@+id/btn_ly"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="54dp"
+        android:layout_marginTop="179dp"
+        android:background="#10000000"
+        android:text="按住录音"
+        android:layout_marginLeft="54dp"
+        android:layout_alignParentLeft="true" />
+
+    <CheckBox
+        android:id="@+id/chenk_box"
+        android:layout_width="wrap_content"
+        android:layout_height="30dp"
+        android:layout_alignParentTop="true"
+        android:layout_marginEnd="-54dp"
+        android:layout_marginTop="250dp"
+        android:layout_toStartOf="@+id/btn_ly"
+        android:layout_marginRight="-54dp"
+        android:layout_toLeftOf="@+id/btn_ly" />
+
+    <TextView
+        android:textColor="#6EC274"
+        android:layout_width="wrap_content"
+        android:layout_height="30dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignTop="@+id/chenk_box"
+        android:layout_marginStart="50dp"
+        android:gravity="center"
+        android:text="上传屏幕截图"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="50dp" />
+
+    <TextView
+        android:textColor="#6EC274"
+        android:id="@+id/shebei_xiangqing"
+        android:layout_marginLeft="23dp"
+        android:layout_marginTop="16dp"
+        android:layout_below="@id/chenk_box"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="设备详情:" />
+
+    <TextView
+        android:id="@+id/text_shouji_xiangqing"
+        android:textColor="#6EC274"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignTop="@+id/shebei_xiangqing"
+        android:layout_marginStart="80dp"
+        android:text="GIONEE GN9011 (6.0)"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="80dp" />
+
+    <LinearLayout
+        android:layout_below="@id/shebei_xiangqing"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/btn_quxiao"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="取消" />
+
+        <Button
+            android:id="@+id/btn_fasong"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="发送" />
+    </LinearLayout>
+
+</RelativeLayout>
