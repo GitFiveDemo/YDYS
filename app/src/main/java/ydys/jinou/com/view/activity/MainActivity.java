@@ -218,14 +218,14 @@ public class MainActivity extends AppCompatActivity {
             case R.id.menu_user_collect:
                 break;
             case R.id.menu_user_boon:
+                startActivity(new Intent(this, BoonActivity.class));
                 break;
             case R.id.menu_user_share:
                 break;
             case R.id.menu_user_advise: // 一个弹框 集成讯飞
                 break;
             case R.id.menu_user_setting:// 跳转设置 drawable
-                Intent intent = new Intent(this, SettingActivity.class);
-                startActivity(intent);
+                startActivity(new Intent(this, SettingActivity.class));
                 break;
             case R.id.menu_user_about1:
             case R.id.menu_user_about2: // 弹框
@@ -259,4 +259,18 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    @Override
+    protected void onPause() {
+        super.onPause();
+
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        // 关闭侧滑
+        if (sideLayout.isOpened()){
+            sideLayout.close();
+        }
+    }
 }

@@ -5,6 +5,12 @@
     android:layout_height="match_parent"
     tools:context=".view.activity.BoonActivity">
 
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:text="我说谁啊"
+        android:layout_height="wrap_content" />
+
     <android.support.v7.widget.RecyclerView
         android:id="@+id/boon_recycler"
         android:layout_width="match_parent"
