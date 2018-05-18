@@ -52,3 +52,9 @@ dependencies {
 //    Fresco的依赖
     implementation 'com.facebook.fresco:fresco:1.3.0'
 }
+//配置数据库的信息
+greendao {
+    schemaVersion 1
+    daoPackage 'ydys.jinou.com.model.db'
+    targetGenDir 'src/main/java'
+}
