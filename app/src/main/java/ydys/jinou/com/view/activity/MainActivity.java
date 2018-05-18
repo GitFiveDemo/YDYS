@@ -1,19 +1,15 @@
 package ydys.jinou.com.view.activity;
 
 
-import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.graphics.Color;
-import android.net.ConnectivityManager;
-import android.net.NetworkInfo;
 import android.net.wifi.WifiManager;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.widget.FrameLayout;
@@ -30,7 +26,6 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 import ydys.jinou.com.R;
 import ydys.jinou.com.broadcast.NetBroadcastReceiver;
-import ydys.jinou.com.util.NetUtils;
 import ydys.jinou.com.view.custom.CircleImageView;
 import ydys.jinou.com.view.custom.slide.SlideLayout;
 import ydys.jinou.com.view.fragment.FancyFragment;
@@ -225,7 +220,7 @@ public class MainActivity extends AppCompatActivity {
             case R.id.menu_user_advise: // 一个弹框 集成讯飞
                 break;
             case R.id.menu_user_setting:// 跳转设置 drawable
-                startActivity(new Intent(this, SettingActivity.class));
+                startActivity(new Intent(this, CGSettingActivity.class));
                 break;
             case R.id.menu_user_about1:
             case R.id.menu_user_about2: // 弹框
