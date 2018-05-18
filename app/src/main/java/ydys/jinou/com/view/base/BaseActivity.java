@@ -11,6 +11,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import butterknife.ButterKnife;
+import butterknife.Unbinder;
 import ydys.jinou.com.R;
 
 /**
@@ -20,34 +22,17 @@ import ydys.jinou.com.R;
 public abstract class BaseActivity extends AppCompatActivity {
 
     private ImageView backImage;
-    private TextView titleTv;
+    public TextView titleTv;
+    private Unbinder bind;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_base);
         init();
+        bind = ButterKnife.bind(this);
         initView();
         initDate();
-    }
-
-    //点击返回两次退出app
-    private long exitTime = 0;
-    @Override
-    public boolean onKeyDown(int keyCode, KeyEvent event) {
-        if (keyCode == KeyEvent.KEYCODE_BACK
-                && event.getAction() == KeyEvent.ACTION_DOWN) {
-            if ((System.currentTimeMillis() - exitTime) > 2000) {
-                //弹出提示，可以有多种方式
-                Toast.makeText(getApplicationContext(), "再按一次退出程序", Toast.LENGTH_SHORT).show();
-                exitTime = System.currentTimeMillis();
-            } else {
-                finish();
-            }
-            return false;
-        }
-
-        return super.onKeyDown(keyCode, event);
     }
 
     // 设置标题
