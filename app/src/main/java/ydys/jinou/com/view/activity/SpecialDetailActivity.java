@@ -39,6 +39,12 @@ public class SpecialDetailActivity extends BaseMVPActivity<HomePresenter> implem
     protected void initDate() {
     }
 
+    @Override
+    protected boolean isHideTitle() {
+        return false;
+
+    }
+
 
     @Override
     protected HomePresenter getPresenter() {

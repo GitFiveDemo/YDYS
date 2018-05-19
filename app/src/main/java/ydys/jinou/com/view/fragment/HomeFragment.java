@@ -8,6 +8,7 @@ import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.google.gson.Gson;
 import com.scwang.smartrefresh.layout.SmartRefreshLayout;
@@ -15,6 +16,7 @@ import com.scwang.smartrefresh.layout.api.RefreshLayout;
 import com.scwang.smartrefresh.layout.listener.OnRefreshListener;
 import com.youth.banner.Banner;
 import com.youth.banner.BannerConfig;
+import com.youth.banner.listener.OnBannerListener;
 
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
@@ -129,10 +131,10 @@ public class HomeFragment extends BaseFragment<HomePresenter> {
 
     @Override
     public void succeed(String s) {
-        List<String> imageUrls = new ArrayList<>();
+        final List<String> imageUrls = new ArrayList<>();
         HomeBean homeBean = new Gson().fromJson(s, HomeBean.class);
         Log.e(TAG, "succeed: " + s);
-        List<HomeBean.RetBean.ListBean.ChildListBean> list = homeBean.getRet().getList().get(0).getChildList();
+        final List<HomeBean.RetBean.ListBean.ChildListBean> list = homeBean.getRet().getList().get(0).getChildList();
 
         Log.e(TAG, "succeed: " + list);
         homeAdapter = new HomeAdapter(getActivity(), list);
@@ -144,6 +146,8 @@ public class HomeFragment extends BaseFragment<HomePresenter> {
         for (int i = 0; i < list.size(); i++) {
             imageUrls.add(list.get(i).getPic());
         }
+
+
 
         banner.setImages(imageUrls);
         banner.start();

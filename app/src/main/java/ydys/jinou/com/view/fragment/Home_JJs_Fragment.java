@@ -23,10 +23,10 @@ import ydys.jinou.com.model.bean.HomeBean;
 import ydys.jinou.com.model.http.ServiceUrl;
 import ydys.jinou.com.presenter.HomePresenter;
 import ydys.jinou.com.view.adapter.HomeAdapter;
-import ydys.jinou.com.view.adapter.HomessAdapter;
+import ydys.jinou.com.view.adapter.HomesAdapter;
 import ydys.jinou.com.view.base.BaseFragment;
 
-public class Home_JJ_Fragment extends BaseFragment<HomePresenter> {
+public class Home_JJs_Fragment extends BaseFragment<HomePresenter> {
     private static final String TAG = "ssssssssss";
     @BindView(R.id.daoyan)
     TextView daoyan;
@@ -42,7 +42,7 @@ public class Home_JJ_Fragment extends BaseFragment<HomePresenter> {
     RecyclerView messagemovie;
     Unbinder unbinder;
 
-    private HomessAdapter homeAdapter;
+    private HomesAdapter homeAdapter;
     private HomePresenter homePresenter;
 
     @Override
@@ -61,7 +61,7 @@ public class Home_JJ_Fragment extends BaseFragment<HomePresenter> {
 
     @Override
     protected int setBaseView() {
-        return R.layout.jianjie_tab_lyout;
+        return R.layout.jianjie_tabs_lyout;
     }
 
     @Override
@@ -69,7 +69,7 @@ public class Home_JJ_Fragment extends BaseFragment<HomePresenter> {
         HomeBean homeBean = new Gson().fromJson(s, HomeBean.class);
         List<HomeBean.RetBean.ListBean.ChildListBean> childList = homeBean.getRet().getList().get(0).getChildList();
         Log.e(TAG, "succeedssssssssssssssss: "+childList );
-        homeAdapter = new HomessAdapter(getActivity(), childList);
+        homeAdapter = new HomesAdapter(getActivity(), childList);
         messagemovie.setAdapter(homeAdapter);
         messagemovie.setLayoutManager(new GridLayoutManager(getActivity(),3));
         messagemovie.setNestedScrollingEnabled(false);
