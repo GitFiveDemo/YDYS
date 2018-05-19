@@ -42,7 +42,6 @@ public class SpecialDetailActivity extends BaseMVPActivity<HomePresenter> implem
     @Override
     protected boolean isHideTitle() {
         return false;
-
     }
 
 
