@@ -27,7 +27,9 @@ import ydys.jinou.com.view.adapter.TabAdapters;
 import ydys.jinou.com.view.base.BaseMVPActivity;
 import ydys.jinou.com.view.callback.SimpleCallBack;
 import ydys.jinou.com.view.fragment.Home_JJ_Fragment;
+import ydys.jinou.com.view.fragment.Home_JJs_Fragment;
 import ydys.jinou.com.view.fragment.Home_pl_Framgent;
+import ydys.jinou.com.view.fragment.Home_pls_Framgent;
 
 public class MessageMovieActivity extends BaseMVPActivity<HomePresenter> implements SimpleCallBack<String>{
 
@@ -57,8 +59,8 @@ public class MessageMovieActivity extends BaseMVPActivity<HomePresenter> impleme
     private void initTab() {
         list = new ArrayList<>();
         data = new ArrayList<>();
-        list.add(new Home_JJ_Fragment());
-        list.add(new Home_pl_Framgent());
+        list.add(new Home_JJs_Fragment());
+        list.add(new Home_pls_Framgent());
         data.add("简介");
         data.add("评论");
         TabAdapters myAdapter = new TabAdapters(getSupportFragmentManager(), list, data);

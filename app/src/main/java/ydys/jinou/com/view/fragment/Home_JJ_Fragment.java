@@ -2,6 +2,8 @@ package ydys.jinou.com.view.fragment;
 
 import android.os.Bundle;
 import android.support.v7.widget.GridLayoutManager;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.OrientationHelper;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -23,6 +25,7 @@ import ydys.jinou.com.model.bean.HomeBean;
 import ydys.jinou.com.model.http.ServiceUrl;
 import ydys.jinou.com.presenter.HomePresenter;
 import ydys.jinou.com.view.adapter.HomeAdapter;
+import ydys.jinou.com.view.adapter.HomesAdapter;
 import ydys.jinou.com.view.adapter.HomessAdapter;
 import ydys.jinou.com.view.base.BaseFragment;
 
@@ -38,11 +41,11 @@ public class Home_JJ_Fragment extends BaseFragment<HomePresenter> {
     TextView jianjie;
     @BindView(R.id.three)
     LinearLayout three;
-    @BindView(R.id.messagemovie)
-    RecyclerView messagemovie;
+    @BindView(R.id.messagemovies)
+    RecyclerView messagemovies;
     Unbinder unbinder;
 
-    private HomessAdapter homeAdapter;
+    private HomesAdapter homeAdapter;
     private HomePresenter homePresenter;
 
     @Override
@@ -69,10 +72,10 @@ public class Home_JJ_Fragment extends BaseFragment<HomePresenter> {
         HomeBean homeBean = new Gson().fromJson(s, HomeBean.class);
         List<HomeBean.RetBean.ListBean.ChildListBean> childList = homeBean.getRet().getList().get(0).getChildList();
         Log.e(TAG, "succeedssssssssssssssss: "+childList );
-        homeAdapter = new HomessAdapter(getActivity(), childList);
-        messagemovie.setAdapter(homeAdapter);
-        messagemovie.setLayoutManager(new GridLayoutManager(getActivity(),3));
-        messagemovie.setNestedScrollingEnabled(false);
+        homeAdapter = new HomesAdapter(getActivity(), childList);
+        messagemovies.setAdapter(homeAdapter);
+        messagemovies.setLayoutManager(new GridLayoutManager(getActivity(),3));
+        messagemovies.setNestedScrollingEnabled(false);
 
     }
 

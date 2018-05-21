@@ -23,6 +23,7 @@ import ydys.jinou.com.presenter.HomePresenter;
 import ydys.jinou.com.view.adapter.TabAdapters;
 import ydys.jinou.com.view.base.BaseMVPActivity;
 import ydys.jinou.com.view.callback.SimpleCallBack;
+import ydys.jinou.com.view.fragment.Home_JJ_Fragment;
 import ydys.jinou.com.view.fragment.Home_JJs_Fragment;
 import ydys.jinou.com.view.fragment.Home_pls_Framgent;
 
@@ -54,7 +55,7 @@ public class MessageMoviesActivity extends BaseMVPActivity<HomePresenter> implem
     private void initTab() {
         list = new ArrayList<>();
         data = new ArrayList<>();
-        list.add(new Home_JJs_Fragment());
+        list.add(new Home_JJ_Fragment());
         list.add(new Home_pls_Framgent());
         data.add("简介");
         data.add("评论");
@@ -70,7 +71,6 @@ public class MessageMoviesActivity extends BaseMVPActivity<HomePresenter> implem
         Map<String,String> map=new HashMap<>();
         map.put("mediaId",id);
         homePresenter.getData(ServiceUrl.message_url, map);
-        homePresenter.haha();
         return homePresenter;
     }
 
