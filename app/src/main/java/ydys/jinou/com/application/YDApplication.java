@@ -1,6 +1,7 @@
 package ydys.jinou.com.application;
 
 import android.app.Application;
+import android.content.Context;
 import android.content.res.Configuration;
 import android.graphics.Point;
 import android.os.Handler;
@@ -8,8 +9,17 @@ import android.os.Process;
 import android.view.WindowManager;
 
 import com.facebook.drawee.backends.pipeline.Fresco;
+import com.iflytek.cloud.SpeechConstant;
+import com.iflytek.cloud.SpeechUtility;
+import com.scwang.smartrefresh.layout.SmartRefreshLayout;
+import com.scwang.smartrefresh.layout.api.DefaultRefreshHeaderCreater;
+import com.scwang.smartrefresh.layout.api.RefreshHeader;
+import com.scwang.smartrefresh.layout.api.RefreshLayout;
+import com.scwang.smartrefresh.layout.constant.SpinnerStyle;
+import com.scwang.smartrefresh.layout.header.ClassicsHeader;
 
 import retrofit2.http.HEAD;
+import ydys.jinou.com.R;
 
 /**
  * author: 晨光光
@@ -27,6 +37,14 @@ public class YDApplication extends Application {
         Fresco.initialize(this);
         myTid = Process.myTid();
         handler = new Handler();
+        //设置全局的Header构建器
+        SmartRefreshLayout.setDefaultRefreshHeaderCreater(new DefaultRefreshHeaderCreater() {
+            @Override
+            public RefreshHeader createRefreshHeader(Context context, RefreshLayout layout) {
+                layout.setPrimaryColorsId(R.color.colorPrimary, android.R.color.white);//全局设置主题颜色
+                return new ClassicsHeader(context).setSpinnerStyle(SpinnerStyle.Translate);//指定为经典Header，默认是 贝塞尔雷达Header
+            }
+        });
     }
 
     @Override
