@@ -7,10 +7,8 @@ import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.dl7.player.media.IjkPlayerView;
-import com.google.gson.Gson;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -20,7 +18,6 @@ import java.util.Map;
 import butterknife.BindView;
 import butterknife.OnClick;
 import ydys.jinou.com.R;
-import ydys.jinou.com.model.bean.HomeBean;
 import ydys.jinou.com.model.http.ServiceUrl;
 import ydys.jinou.com.presenter.HomePresenter;
 import ydys.jinou.com.view.adapter.TabAdapters;
@@ -28,10 +25,9 @@ import ydys.jinou.com.view.base.BaseMVPActivity;
 import ydys.jinou.com.view.callback.SimpleCallBack;
 import ydys.jinou.com.view.fragment.Home_JJ_Fragment;
 import ydys.jinou.com.view.fragment.Home_JJs_Fragment;
-import ydys.jinou.com.view.fragment.Home_pl_Framgent;
 import ydys.jinou.com.view.fragment.Home_pls_Framgent;
 
-public class MessageMovieActivity extends BaseMVPActivity<HomePresenter> implements SimpleCallBack<String>{
+public class MessageMoviesActivity extends BaseMVPActivity<HomePresenter> implements SimpleCallBack<String>{
 
     private static final String TAG = "Aaa";
     @BindView(R.id.back_mess)
@@ -59,7 +55,7 @@ public class MessageMovieActivity extends BaseMVPActivity<HomePresenter> impleme
     private void initTab() {
         list = new ArrayList<>();
         data = new ArrayList<>();
-        list.add(new Home_JJs_Fragment());
+        list.add(new Home_JJ_Fragment());
         list.add(new Home_pls_Framgent());
         data.add("简介");
         data.add("评论");

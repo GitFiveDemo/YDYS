@@ -1,63 +1,73 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.scwang.smartrefresh.layout.SmartRefreshLayout
+<com.scwang.smartrefresh.layout.SmartRefreshLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/duanzi_smart"
-    android:orientation="vertical"
-    android:background="@drawable/bg_colorful"
-    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_colorful"
+    android:orientation="vertical">
 
     <ScrollView
-        android:scrollbars="vertical"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:scrollbars="vertical">
 
         <LinearLayout
-            android:orientation="vertical"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="250dp">
+
                 <com.youth.banner.Banner
                     android:id="@+id/banner"
-                    android:layout_centerInParent="true"
                     android:layout_width="match_parent"
-                    android:layout_height="250dp"></com.youth.banner.Banner>
+                    android:layout_height="250dp"
+                    android:layout_centerInParent="true"></com.youth.banner.Banner>
+
                 <EditText
-                    android:focusable="false"
-                    android:focusableInTouchMode="false"
                     android:id="@+id/serch_movie"
-                    android:textColorHint="#6e6a6a"
-                    android:textColor="#ffffff"
+                    android:layout_width="250dp"
+                    android:layout_height="38dp"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="20dp"
                     android:background="@drawable/editsharp"
                     android:drawableLeft="@drawable/search"
+                    android:focusable="false"
+                    android:focusableInTouchMode="false"
                     android:hint="一念天堂"
-                    android:layout_marginTop="20dp"
-                    android:layout_centerHorizontal="true"
-                    android:layout_width="250dp"
-                    android:layout_height="38dp" />
+                    android:textColor="#ffffff"
+                    android:textColorHint="#6e6a6a" />
             </RelativeLayout>
+
             <LinearLayout
-                android:orientation="vertical"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
                 <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:layout_marginLeft="20dp"
+                    android:layout_marginTop="39px"
                     android:gravity="center_vertical"
-                    android:textStyle="bold"
+                    android:text="精彩推荐"
                     android:textColor="#ffffff"
                     android:textSize="16dp"
-                    android:text="精彩推荐"
-                    android:layout_marginTop="39px"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" />
-                <android.support.v7.widget.RecyclerView
-                    android:layout_gravity="center_horizontal"
-                    android:id="@+id/recyclerview"
-                    android:layout_marginTop="20dp"
+                    android:textStyle="bold" />
+
+                <RelativeLayout
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"></android.support.v7.widget.RecyclerView>
+                    android:layout_height="wrap_content">
+
+                    <android.support.v7.widget.RecyclerView
+                        android:id="@+id/recyclerview"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_marginTop="20dp" />
+                </RelativeLayout>
             </LinearLayout>
         </LinearLayout>
 

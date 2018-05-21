@@ -16,27 +16,26 @@ import java.util.List;
 import ydys.jinou.com.R;
 import ydys.jinou.com.model.bean.HomeBean;
 import ydys.jinou.com.view.activity.MessageMovieActivity;
-import ydys.jinou.com.view.activity.MessageMoviesActivity;
 
-public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.ViewHolder> {
+public class HomesAdapter extends RecyclerView.Adapter<HomesAdapter.ViewHolder> {
     private Context context;
     private List<HomeBean.RetBean.ListBean.ChildListBean> list;
 
-    public HomeAdapter(Context context, List<HomeBean.RetBean.ListBean.ChildListBean> list) {
+    public HomesAdapter(Context context, List<HomeBean.RetBean.ListBean.ChildListBean> list) {
         this.context = context;
         this.list = list;
     }
 
     @NonNull
     @Override
-    public HomeAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = View.inflate(context, R.layout.first_item, null);
+    public HomesAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        View view = View.inflate(context, R.layout.first_mess_item, null);
         ViewHolder holder = new ViewHolder(view);
         return holder;
     }
 
     @Override
-    public void onBindViewHolder(@NonNull final HomeAdapter.ViewHolder holder, final int position) {
+    public void onBindViewHolder(@NonNull HomesAdapter.ViewHolder holder, final int position) {
         ImageView imageview = holder.getImageview();
         TextView movie_name = holder.getMovie_name();
         String pic = list.get(position).getPic();
@@ -49,11 +48,13 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.ViewHolder> {
         holder.getImageview().setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(context, MessageMoviesActivity.class);
+                Intent intent = new Intent(context, MessageMovieActivity.class);
+                //intent.putStringExtra(list.get(position).getDataId());
                 intent.putExtra("id",list.get(position).getDataId());
                 intent.putExtra("url",list.get(position).getShareURL());
                 intent.putExtra("title",list.get(position).getTitle());
                 intent.putExtra("jianjie",list.get(position).getDescription());
+
                 context.startActivity(intent);
 
             }
@@ -77,8 +78,8 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.ViewHolder> {
 
         public ViewHolder(View itemView) {
             super(itemView);
-            imageview = itemView.findViewById(R.id.imageview);
-            movie_name = itemView.findViewById(R.id.movie_name);
+            imageview = itemView.findViewById(R.id.imageviews);
+            movie_name = itemView.findViewById(R.id.movie_names);
 
         }
 
