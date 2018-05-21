@@ -200,7 +200,6 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-
     /**
      * 隐藏所有的Fragment
      */
@@ -212,7 +211,6 @@ public class MainActivity extends AppCompatActivity {
         if (fancyFragment != null) fragmentTransaction.hide(fancyFragment);
         fragmentTransaction.commit();
     }
-
 
     @OnClick({R.id.menu_user_icon, R.id.menu_user_collect, R.id.menu_user_download, R.id.menu_user_boon, R.id.menu_user_share, R.id.menu_user_advise, R.id.menu_user_setting, R.id.menu_user_about1, R.id.menu_user_about2, R.id.menu_user_theme1, R.id.menu_user_theme2})
     public void onViewClicked(View view) {
@@ -268,7 +266,6 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onPause() {
         super.onPause();
-
     }
 
     @Override
