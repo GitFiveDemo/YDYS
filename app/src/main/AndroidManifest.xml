@@ -23,11 +23,12 @@
             </intent-filter>
         </activity>
         <activity android:name=".view.activity.SerchMovieActivity" />
-        <activity android:name=".view.activity.SettingActivity"/>
+        <activity android:name=".view.activity.SettingActivity" />
         <activity android:name=".view.activity.MessageMovieActivity" />
         <activity android:name=".view.activity.BoonActivity" />
-        <activity android:name=".view.activity.CGSettingActivity"/>
-        <activity android:name=".view.activity.SpecialDetailActivity"/>
+        <activity android:name=".view.activity.CGSettingActivity" />
+        <activity android:name=".view.activity.SpecialDetailActivity" />
+        <activity android:name=".view.activity.SpecialVideoActivity"></activity>
     </application>
 
 </manifest>
