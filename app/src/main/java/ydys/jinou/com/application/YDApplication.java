@@ -1,6 +1,7 @@
 package ydys.jinou.com.application;
 
 import android.app.Application;
+import android.content.Context;
 import android.content.res.Configuration;
 import android.graphics.Point;
 import android.os.Handler;
@@ -19,6 +20,7 @@ public class YDApplication extends Application {
     public final static float DESIGN_WIDTH = 720; //绘制页面时参照的设计图宽度
     private static int myTid;
     private static Handler handler;
+    private static Context context;
     @Override
     public void onCreate() {
         super.onCreate();
@@ -27,6 +29,7 @@ public class YDApplication extends Application {
         Fresco.initialize(this);
         myTid = Process.myTid();
         handler = new Handler();
+        context = getApplicationContext();
     }
 
     @Override
@@ -34,7 +37,9 @@ public class YDApplication extends Application {
         super.onConfigurationChanged(newConfig);
         resetDensity();//这个方法重写也是很有必要的
     }
-
+    public static Context getAppContext() {
+        return context;
+    }
     public void resetDensity() {
         Point size = new Point();
         ((WindowManager) getSystemService(WINDOW_SERVICE)).getDefaultDisplay().getSize(size);
