@@ -33,8 +33,11 @@ import butterknife.BindView;
 import butterknife.OnClick;
 import ydys.jinou.com.R;
 import ydys.jinou.com.model.bean.HomeBean;
+import ydys.jinou.com.model.bean.MessageBean;
 import ydys.jinou.com.model.http.ServiceUrl;
 import ydys.jinou.com.presenter.HomePresenter;
+import ydys.jinou.com.view.activity.MessageMovieActivity;
+import ydys.jinou.com.view.activity.MessageMoviesActivity;
 import ydys.jinou.com.view.activity.SerchMovieActivity;
 import ydys.jinou.com.view.adapter.HomeAdapter;
 import ydys.jinou.com.view.base.BaseFragment;
@@ -58,6 +61,7 @@ public class HomeFragment extends BaseFragment<HomePresenter> {
     private HomePresenter homePresenter;
     private HomeAdapter homeAdapter;
     private ProgressDialog progressDialog;
+    private List<MessageBean> messageBeans;
 
     @Override
     protected HomePresenter getPresenter() {
@@ -89,7 +93,7 @@ public class HomeFragment extends BaseFragment<HomePresenter> {
 
             progressDialog = ProgressDialog.show(getActivity(), title,
                     message, true, false);
-            
+
         } else if (progressDialog.isShowing()) {
             progressDialog.setTitle(title);
             progressDialog.setMessage(message);
@@ -141,17 +145,36 @@ public class HomeFragment extends BaseFragment<HomePresenter> {
 
         recyclerview.setAdapter(homeAdapter);
 
+        if (messageBeans == null)
+            messageBeans = new ArrayList<>();
 
         //获取图片
         for (int i = 0; i < list.size(); i++) {
-            imageUrls.add(list.get(i).getPic());
+            HomeBean.RetBean.ListBean.ChildListBean childListBean = list.get(i);
+            imageUrls.add(childListBean.getPic());
+            String dataId = childListBean.getDataId();
+            String url = childListBean.getShareURL();
+            String title = childListBean.getTitle();
+            messageBeans.add(new MessageBean(dataId,title,url));
         }
-
-
 
         banner.setImages(imageUrls);
         banner.start();
         hideProgressDialog();
+
+
+        banner.setOnBannerListener(new OnBannerListener() {
+            @Override
+            public void OnBannerClick(int position) {
+                Intent intent = new Intent(getActivity(), MessageMoviesActivity.class);
+
+                MessageBean messageBean = messageBeans.get(position);
+                intent.putExtra("id", messageBean.getId());
+                intent.putExtra("title", messageBean.getTitle());
+                intent.putExtra("url", messageBean.getUrl());
+                startActivity(intent);
+            }
+        });
     }
 
     private void inbanner() {
@@ -186,9 +209,9 @@ public class HomeFragment extends BaseFragment<HomePresenter> {
 
     @Subscribe(threadMode = ThreadMode.MAIN, priority = 1000)
     public void onToastEvent(Integer msg) {//参数就是订阅的事件(其实就是传递数据的类)
-        if (msg == -1){
+        if (msg == -1) {
             banner.start();
-        }else{
+        } else {
             banner.stopAutoPlay();
         }
     }
