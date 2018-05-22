@@ -6,23 +6,22 @@ import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
+import android.widget.TextView;
 
-import com.bumptech.glide.Glide;
 import com.facebook.drawee.view.SimpleDraweeView;
 
 import java.util.List;
 
 import ydys.jinou.com.R;
 import ydys.jinou.com.model.bean.SpeciaDetailBean;
-import ydys.jinou.com.view.activity.SpecialVideoActivity;
+import ydys.jinou.com.view.activity.MessageMovieActivity;
+
 
 public class SpecialDetailAdapter extends RecyclerView.Adapter<SpecialDetailAdapter.SpecialDetailViewHolder> {
 
     Context context;
-    List<SpeciaDetailBean.RetBean.ListBean> list;
-
-    public SpecialDetailAdapter(Context context, List<SpeciaDetailBean.RetBean.ListBean> list) {
+    List<SpeciaDetailBean.RetBean.ListBean.ChildListBean> list;
+    public SpecialDetailAdapter(Context context,List<SpeciaDetailBean.RetBean.ListBean.ChildListBean> list) {
         this.context = context;
         this.list = list;
     }
@@ -36,36 +35,50 @@ public class SpecialDetailAdapter extends RecyclerView.Adapter<SpecialDetailAdap
     }
 
     @Override
-    public void onBindViewHolder(@NonNull SpecialDetailViewHolder holder, int position) {
-        holder.simpleDraweeView.setImageURI(list.get(0).getChildList().get(position).getPic());
+    public void onBindViewHolder(@NonNull SpecialDetailViewHolder holder, final int position) {
+        holder.getSimpleDraweeView().setImageURI(list.get(position).getPic());
 
-        holder.simpleDraweeView.setOnClickListener(new View.OnClickListener() {
+
+
+        holder.getSimpleDraweeView().setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(context, SpecialVideoActivity.class);
+                Intent intent = new Intent(context, MessageMovieActivity.class);
+
+                intent.putExtra("id", list.get(position).getDataId());
+                intent.putExtra("url", list.get(position).getShareURL());
+                intent.putExtra("title", list.get(position).getTitle());
+                intent.putExtra("jianjie", list.get(position).getDescription());
                 context.startActivity(intent);
+
             }
         });
-//        Glide.with(context).load(list.get(0).getChildList().get(position).getPic()).into(holder.simpleDraweeView);
-
+        holder.getName().setText(list.get(position).getTitle());
     }
 
 
     @Override
     public int getItemCount() {
-        return list.get(0).getChildList().size();
+        return list.size();
     }
 
     class SpecialDetailViewHolder extends RecyclerView.ViewHolder {
-//        private final ImageView simpleDraweeView;
 
         private final SimpleDraweeView simpleDraweeView;
+        private final TextView name;
 
         public SpecialDetailViewHolder(View itemView) {
             super(itemView);
             simpleDraweeView = itemView.findViewById(R.id.simp_detail_view);
-//            simpleDraweeView = itemView.findViewById(R.id.simp_detail_view);
+            name = itemView.findViewById(R.id.name);
         }
 
+        public SimpleDraweeView getSimpleDraweeView() {
+            return simpleDraweeView;
+        }
+
+        public TextView getName() {
+            return name;
+        }
     }
 }

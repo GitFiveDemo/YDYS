@@ -44,12 +44,13 @@ public class SpecialDetailActivity extends BaseMVPActivity<HomePresenter> {
 
     @Override
     protected View getMVPView() {
+        setActivityTitle("微电影");
         return View.inflate(this, R.layout.activity_special_detail, null);
     }
 
     @Override
     protected void functionExtension() {
-//        detailRecyView.setLayoutManager(new GridLayoutManager(this,3));
+
         detailRecyView.setLayoutManager(new GridLayoutManager(this, 2));
 
         //获取传过来的路径
@@ -67,14 +68,12 @@ public class SpecialDetailActivity extends BaseMVPActivity<HomePresenter> {
         } catch (NullPointerException e) {
             Log.e("error", "空指针异常", e);
         }
-
-
     }
 
     @Override
     public void succeed(String s) {
         SpeciaDetailBean speciaDetailBean = new Gson().fromJson(s, SpeciaDetailBean.class);
-        List<SpeciaDetailBean.RetBean.ListBean> list = speciaDetailBean.getRet().getList();
+        List<SpeciaDetailBean.RetBean.ListBean.ChildListBean> list = speciaDetailBean.getRet().getList().get(0).getChildList();
         Log.d("SpecialDetailActivity", "获取到专题详情集合-------------" + list);
         SpecialDetailAdapter specialDetailAdapter = new SpecialDetailAdapter(this, list);
         detailRecyView.setAdapter(specialDetailAdapter);
