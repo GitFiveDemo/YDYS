@@ -301,6 +301,12 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
+        if (parentView != null) {
+            int colorStyle = CommonUtil.obtainColorValue();
+            if (colorStyle != -1) {
+                parentView.setBackgroundColor(colorStyle);
+            }
+        }
     }
 
     @Override

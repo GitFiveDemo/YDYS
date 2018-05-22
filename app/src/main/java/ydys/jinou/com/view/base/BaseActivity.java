@@ -12,10 +12,14 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.jaeger.library.StatusBarUtil;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
 import ydys.jinou.com.R;
+import ydys.jinou.com.util.CommonUtil;
+import ydys.jinou.com.view.activity.MainActivity;
 
 /**
  * author: 晨光光
@@ -82,4 +86,28 @@ public abstract class BaseActivity extends AppCompatActivity {
     }
 
     protected abstract boolean isHideTitle();
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        int themeColor = CommonUtil.obtainColorValue();
+        if (themeColor != -1) {
+            StatusBarUtil.setColor(this, themeColor);
+            if (getChildView() != null)
+                getChildView().setBackgroundColor(themeColor);
+        }
+        setTitleColorStyle();
+    }
+
+    protected void setTitleColorStyle() {
+        int colorStyle = CommonUtil.obtainColorValue();
+        if (colorStyle != -1)
+            titleBar.setBackgroundColor(colorStyle);
+    }
 }
