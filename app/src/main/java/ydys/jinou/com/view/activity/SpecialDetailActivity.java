@@ -1,7 +1,9 @@
 package ydys.jinou.com.view.activity;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -83,4 +85,5 @@ public class SpecialDetailActivity extends BaseMVPActivity<HomePresenter> {
     public void failure(String error) {
         Log.d("SpecialDetailActivity", "出现异常====================" + error);
     }
+
 }

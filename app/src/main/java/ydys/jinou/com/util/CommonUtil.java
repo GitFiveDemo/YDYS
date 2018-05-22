@@ -2,8 +2,6 @@ package ydys.jinou.com.util;
 
 import android.os.Process;
 
-import ydys.jinou.com.application.YDApplication;
-
 /**
  * author: 晨光光
  * date : 2018/5/18 17:13

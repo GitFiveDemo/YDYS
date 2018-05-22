@@ -1,6 +1,7 @@
 package ydys.jinou.com.view.activity;
 
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
@@ -545,4 +546,13 @@ public class MainActivity extends AppCompatActivity {
         speechRecognizer.setParameter(SpeechConstant.ASR_AUDIO_PATH,
                 Environment.getExternalStorageDirectory() + "/msc/iat.wav");
     }
+
+    //解决fragment重影的
+    @SuppressLint("MissingSuperCall")
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        //如果用以下这种做法则不保存状态，再次进来的话会显示默认的tab
+        //  super.onSaveInstanceState(outState);
+    }
+
 }
