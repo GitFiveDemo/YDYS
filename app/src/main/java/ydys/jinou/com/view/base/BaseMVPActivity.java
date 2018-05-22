@@ -3,7 +3,11 @@ package ydys.jinou.com.view.base;
 import android.util.Log;
 import android.view.View;
 
+import com.jaeger.library.StatusBarUtil;
+
 import ydys.jinou.com.presenter.BasePresenter;
+import ydys.jinou.com.util.CommonUtil;
+import ydys.jinou.com.view.activity.MainActivity;
 import ydys.jinou.com.view.callback.SimpleCallBack;
 
 /**
@@ -17,7 +21,7 @@ public abstract class BaseMVPActivity<T extends BasePresenter> extends BaseActiv
     @Override
     protected void initView() {
         presenter = this.getPresenter();
-        Log.e("AAA","getPresenter"+presenter);
+        Log.e("AAA", "getPresenter" + presenter);
         if (presenter == null)
             throw new NullPointerException("网络请求,需要传入Presenter");
 
@@ -58,4 +62,6 @@ public abstract class BaseMVPActivity<T extends BasePresenter> extends BaseActiv
      * 功能扩展
      */
     protected abstract void functionExtension();
+
+
 }

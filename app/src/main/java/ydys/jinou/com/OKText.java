@@ -10,24 +10,25 @@ import okhttp3.Response;
 
 public class OKText {
 
-   public void onText(){
-       OkHttpClient client1 = new OkHttpClient();
-       OkHttpClient client = new OkHttpClient.Builder().build();
-       Request request = new Request.Builder()
-               .get()
-               .url("")
-               .build();
-       Call call = client.newCall(request);
+    public void onText() {
+        OkHttpClient client1 = new OkHttpClient();
+        OkHttpClient client = new OkHttpClient.Builder().build();
+        Request request = new Request.Builder()
+                .get()
+                .url("")
+                .build();
+        Call call = client.newCall(request);
         call.enqueue(new Callback() {
             @Override
             public void onFailure(Call call, IOException e) {
 
             }
+
             @Override
             public void onResponse(Call call, Response response) throws IOException {
 
             }
         });
-   }
+    }
 
 }
