@@ -28,8 +28,13 @@ import ydys.jinou.com.R;
 public class YDApplication extends Application {
     public final static float DESIGN_WIDTH = 720; //绘制页面时参照的设计图宽度
     private static int myTid;
-    private static Context context;
     private static Handler handler;
+    private static Context appContext;
+
+    public static Context getAppContext() {
+        return appContext;
+    }
+
     @Override
     public void onCreate() {
         super.onCreate();
@@ -38,7 +43,6 @@ public class YDApplication extends Application {
         Fresco.initialize(this);
         myTid = Process.myTid();
         handler = new Handler();
-        context = getApplicationContext();
         //设置全局的Header构建器
         SmartRefreshLayout.setDefaultRefreshHeaderCreater(new DefaultRefreshHeaderCreater() {
             @Override
@@ -47,6 +51,7 @@ public class YDApplication extends Application {
                 return new ClassicsHeader(context).setSpinnerStyle(SpinnerStyle.Translate);//指定为经典Header，默认是 贝塞尔雷达Header
             }
         });
+        appContext = this;
     }
 
     @Override
@@ -68,7 +73,5 @@ public class YDApplication extends Application {
     public static Handler getHandler() {
         return handler;
     }
-    public static Context getAppContext(){
-        return context;
-    };
+
 }
