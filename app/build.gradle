@@ -5,7 +5,7 @@ android {
     compileSdkVersion 27
     defaultConfig {
         applicationId "ydys.jinou.com"
-        minSdkVersion 15
+        minSdkVersion 19
         targetSdkVersion 27
         versionCode 1
         versionName "1.0"
@@ -65,6 +65,7 @@ dependencies {
     // glide
     implementation 'com.github.bumptech.glide:glide:4.4.0'
     implementation files('libs/Msc.jar')
+    implementation project(':library')
 }
 
 //配置数据库的信息
