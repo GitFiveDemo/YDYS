@@ -3,8 +3,6 @@ package ydys.jinou.com.util;
 import android.content.SharedPreferences;
 import android.util.Log;
 
-import ydys.jinou.com.application.YDApplication;
-
 public class SharePrenFace {
     public static final String TAG = "Dash";//sp文件的xml名称
     private static SharedPreferences sharedPreferences;

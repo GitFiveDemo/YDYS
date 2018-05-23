@@ -1,9 +1,7 @@
 package ydys.jinou.com.view.fragment;
 
-
 import android.os.Bundle;
 import android.support.v7.widget.GridLayoutManager;
-import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -47,12 +45,12 @@ public class SpecialFragment extends BaseFragment<HomePresenter> {
 
     @Override
     protected void initData() {
-        recyleView.setLayoutManager(new GridLayoutManager(getActivity(),2));
+        recyleView.setLayoutManager(new GridLayoutManager(getActivity(), 2));
 
-        Map<String,String> map=new HashMap<>();
-        map.put("catalogId","402834815584e463015584e539330016");
-        map.put("pnum","7");
-        homePresenter.getData(ServiceUrl.specialUrl,map);
+        Map<String, String> map = new HashMap<>();
+        map.put("catalogId", "402834815584e463015584e539330016");
+        map.put("pnum", "7");
+        homePresenter.getData(ServiceUrl.specialUrl, map);
     }
 
     @Override
@@ -66,9 +64,9 @@ public class SpecialFragment extends BaseFragment<HomePresenter> {
         SpeciaBean speciaBean = new Gson().fromJson(s, SpeciaBean.class);
         List<SpeciaBean.RetBean.ListBean> list = speciaBean.getRet().getList();
 
-        Log.d("SpecialFragment", "获取到专题集合-------"+list);
+        Log.d("SpecialFragment", "获取到专题集合-------" + list);
 
-        SpecialAdapter specialAdapter=new SpecialAdapter(getActivity(),list);
+        SpecialAdapter specialAdapter = new SpecialAdapter(getActivity(), list);
         recyleView.setAdapter(specialAdapter);
     }
 
@@ -91,4 +89,5 @@ public class SpecialFragment extends BaseFragment<HomePresenter> {
         super.onDestroyView();
         unbinder.unbind();
     }
+
 }
