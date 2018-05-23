@@ -74,6 +74,8 @@ dependencies {
     implementation project(':library')
     // 修改状态栏颜色
     implementation 'com.jaeger.statusbarutil:library:1.5.1'
+
+    compile 'me.yuqirong:cardswipelayout:1.0.0'
 }
 
 //配置数据库的信息
