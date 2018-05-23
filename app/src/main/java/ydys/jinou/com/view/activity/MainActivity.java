@@ -1,6 +1,7 @@
 package ydys.jinou.com.view.activity;
 
 
+import android.annotation.SuppressLint;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.IntentFilter;
@@ -419,5 +420,12 @@ public class MainActivity extends AppCompatActivity {
                 })
                 .create()
                 .show();
+    }
+    //解决fragment
+    @SuppressLint("MissingSuperCall")
+    @Override
+    public void onSaveInstanceState(Bundle outState) {
+        //如果用以下这种做法则不保存状态，再次进来的话会显示默认的tab
+        //  super.onSaveInstanceState(outState);
     }
 }
