@@ -49,6 +49,7 @@ public class SpecialDetailAdapter extends RecyclerView.Adapter<SpecialDetailAdap
                 intent.putExtra("url", list.get(position).getShareURL());
                 intent.putExtra("title", list.get(position).getTitle());
                 intent.putExtra("jianjie", list.get(position).getDescription());
+                intent.putExtra("picture",list.get(position).getPic());
                 context.startActivity(intent);
 
             }

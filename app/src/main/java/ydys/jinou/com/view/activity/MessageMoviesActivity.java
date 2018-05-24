@@ -1,5 +1,6 @@
 package ydys.jinou.com.view.activity;
 
+import android.content.Intent;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
@@ -7,6 +8,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.dl7.player.media.IjkPlayerView;
 
@@ -18,13 +20,15 @@ import java.util.Map;
 import butterknife.BindView;
 import butterknife.OnClick;
 import ydys.jinou.com.R;
+import ydys.jinou.com.model.cache.CollectCacheBean;
+import ydys.jinou.com.model.db.CollectCacheBeanDao;
 import ydys.jinou.com.model.http.ServiceUrl;
 import ydys.jinou.com.presenter.HomePresenter;
+import ydys.jinou.com.util.SQLiteHelper;
 import ydys.jinou.com.view.adapter.TabAdapters;
 import ydys.jinou.com.view.base.BaseMVPActivity;
 import ydys.jinou.com.view.callback.SimpleCallBack;
 import ydys.jinou.com.view.fragment.Home_JJ_Fragment;
-import ydys.jinou.com.view.fragment.Home_JJs_Fragment;
 import ydys.jinou.com.view.fragment.Home_pls_Framgent;
 
 public class MessageMoviesActivity extends BaseMVPActivity<HomePresenter> implements SimpleCallBack<String>{
@@ -91,8 +95,27 @@ public class MessageMoviesActivity extends BaseMVPActivity<HomePresenter> implem
                 finish();
                 break;
             case R.id.soucang:
+                collectData();
                 break;
         }
+    }
+
+    private void collectData(){
+        CollectCacheBeanDao collectCacheBeanDao = SQLiteHelper.getIntance(this).getDaoSession().getCollectCacheBeanDao();
+        long insert = collectCacheBeanDao.insert(getCollectEctity());
+        if (insert!=-1)
+            Toast.makeText(this, "insetSucceed", Toast.LENGTH_SHORT).show();
+    }
+
+    private CollectCacheBean getCollectEctity(){
+        Intent intent = getIntent();
+        String url = intent.getStringExtra("url");
+        String title = intent.getStringExtra("title");
+        String jianjie = intent.getStringExtra("jianjie");
+        String picture = intent.getStringExtra("picture");
+        String id = intent.getStringExtra("id").substring(0,6);
+        long longId = Long.parseLong(id, 16);
+        return new CollectCacheBean(longId,picture,url,title,jianjie);
     }
 
     @Override

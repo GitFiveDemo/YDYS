@@ -236,6 +236,7 @@ public class MainActivity extends AppCompatActivity {
                 Toast.makeText(this, "敬请期待", Toast.LENGTH_SHORT).show();
                 break;
             case R.id.menu_user_collect:
+                startActivity(new Intent(this,CollectActivity.class));
                 break;
             case R.id.menu_user_boon:
                 startActivity(new Intent(this, BoonActivity.class));

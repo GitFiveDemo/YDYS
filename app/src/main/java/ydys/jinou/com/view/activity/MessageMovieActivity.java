@@ -1,5 +1,7 @@
 package ydys.jinou.com.view.activity;
 
+import android.content.Intent;
+import android.database.sqlite.SQLiteConstraintException;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
@@ -21,8 +23,11 @@ import butterknife.BindView;
 import butterknife.OnClick;
 import ydys.jinou.com.R;
 import ydys.jinou.com.model.bean.HomeBean;
+import ydys.jinou.com.model.cache.CollectCacheBean;
+import ydys.jinou.com.model.db.CollectCacheBeanDao;
 import ydys.jinou.com.model.http.ServiceUrl;
 import ydys.jinou.com.presenter.HomePresenter;
+import ydys.jinou.com.util.SQLiteHelper;
 import ydys.jinou.com.view.adapter.TabAdapters;
 import ydys.jinou.com.view.base.BaseMVPActivity;
 import ydys.jinou.com.view.callback.SimpleCallBack;
@@ -95,8 +100,32 @@ public class MessageMovieActivity extends BaseMVPActivity<HomePresenter> impleme
                 finish();
                 break;
             case R.id.soucang:
+                collectData();
                 break;
         }
+    }
+
+    private void collectData(){
+        CollectCacheBeanDao collectCacheBeanDao = SQLiteHelper.getIntance(this).getDaoSession().getCollectCacheBeanDao();
+        try {
+            long insert = collectCacheBeanDao.insert(getCollectEctity());
+            if (insert!=-1)
+                Toast.makeText(this, "insetSucceed", Toast.LENGTH_SHORT).show();
+        }catch (SQLiteConstraintException e){
+            Toast.makeText(this, "已经收藏过了", Toast.LENGTH_SHORT).show();
+        }
+
+    }
+
+    private CollectCacheBean getCollectEctity(){
+        Intent intent = getIntent();
+        String url = intent.getStringExtra("url");
+        String title = intent.getStringExtra("title");
+        String jianjie = intent.getStringExtra("jianjie");
+        String picture = intent.getStringExtra("picture");
+        String id = intent.getStringExtra("id").substring(0,6);
+        long longId = Long.parseLong(id, 16);
+        return new CollectCacheBean(longId,picture,url,title,jianjie);
     }
 
     @Override
